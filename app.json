@@ -1,8 +1,9 @@
 {
     "pages":[
         "pages/emoji/emoji",
-        "pages/emoji_resualt/emoji_resualt",
 
+        "pages/emoji/emoji",
+        "pages/emoji_resualt/emoji_resualt",
         "pages/camera/camera",
         "pages/resualt/resualt",
         "pages/ai/ai",
