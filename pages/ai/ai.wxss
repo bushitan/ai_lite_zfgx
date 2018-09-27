@@ -1,0 +1,64 @@
+/* pages/ai/ai.wxss */
+.xx_box{
+    padding:5px 30px 30px;
+}
+
+.mm{
+    /* position: fixed;
+    bottom: 20px;
+    width: 100%; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+.mm image{
+    width: 144px;
+    height:144px;
+    border-radius: 50%;
+    
+}
+.sf_word{
+    position: absolute;
+    top:0;
+    /* left: 0; */
+}
+
+.camera_box{
+    display: flex;
+    justify-content: center;
+    margin-top:30px
+}
+.camera_canvas{
+    position: absolute;
+    top: -1000px;
+}
+.camera{
+    display: block !important;
+     width: 250px;  
+    height: 250px;
+}
+.camera_cover{
+    width: 250px;  
+    height: 250px;
+}
+.canvas_cover{
+    position: absolute;
+    
+    width: 250px;  
+    height: 250px;
+}
+.btn{
+    padding: 15px;
+}
+.btn_comfirm{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+}
+
+.footer{
+    font-size: 10pt;
+    text-align: center;
+}

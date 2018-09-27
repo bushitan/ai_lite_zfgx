@@ -1,0 +1,27 @@
+{
+    "pages":[
+        "pages/emoji/emoji",
+        "pages/emoji_resualt/emoji_resualt",
+
+        "pages/camera/camera",
+        "pages/resualt/resualt",
+        "pages/ai/ai",
+        "pages/meet/meet",
+        "pages/small/small",
+        "pages/agenda/agenda",
+        "pages/map/map",
+        "pages/edit/edit"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "backgroundColor": "#FAFAFA",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "嗦粉妹",
+        "navigationBarTextStyle": "black"
+    },
+    "networkTimeout": {
+        "request": 15000,
+        "downloadFile": 15000
+    },
+    "debug": true
+}

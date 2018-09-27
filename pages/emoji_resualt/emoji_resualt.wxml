@@ -1,0 +1,34 @@
+<!-- 
+<view class='xx_box'>
+    <view class='xx_card'>
+        <view class='xx_image'>
+            <image class='org' src='{{phoneImage}}' mode='widthFix'></image>
+        </view>
+
+        <view style='height:15px'></view>
+        <view class='sf'>
+            <image   src='../../images/sf.png'></image>
+            <label>{{tagName}}</label>          
+        </view>
+        <view style='height:15px'></view>
+    </view>
+    <view>
+        <button catchtap='toAI'>再次识别</button>
+    </view>
+</view> -->
+<view class='header'>{{header}}</view>
+<view class='box'>
+    <image src='{{bgImage}}' class='bg'>
+        <image 
+            src='{{emojiBase64}}' 
+            class='logo'
+            style='top:{{y}}px; left:{{x}}px'>
+        </image>
+    </image>
+</view>
+
+<view class='btn'>
+    <button catchtap='toAI'>再次识别</button>
+    <view style='height:15px'></view>
+    <button catchtap='save'>图片保存</button>
+</view>

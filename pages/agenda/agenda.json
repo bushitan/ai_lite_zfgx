@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "cover": "../../components/xx_cover/xx_cover",
+        "loading": "../../components/xx_cover_loading/xx_cover_loading",
+        "tab": "../../components/xx_tab/xx_tab",
+        "swiper-list": "../../components/xx_swiper/xx_swiper",
+        "xx-navigte": "../../components/xx_navigte/xx_navigte"
+    }
+}
