@@ -1,0 +1,20 @@
+/* pages/ladder/ladder.wxss */
+.ladder{
+    padding: 15px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.left{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.num{ flex-basis: 30px;}
+.name{ flex-basis: 150px;}
+.logo{ flex-basis: 60px;}
+image{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+}

@@ -1,0 +1,21 @@
+<!--pages/index/index.wxml-->
+
+<view class='header'>
+    <image src='../../images/swiper.jpg' ></image>
+    <view></view>
+</view>
+<view class='map'>
+    <image src='../../images/map.jpg' ></image>
+</view>
+
+<view class='ai'>
+    <!-- <view class='phone'>AI识别柳宗元雕像</view>
+    <view style='height:20px;'></view> -->
+    <navigator url='/pages/emoji/emoji' class='btn'>
+        <label>  
+            <image   src='../../images/camera.png'></image>
+            送祝福</label>
+    </navigator>
+    <view style='height:20px;'></view>
+    <view class='phone'>从相册选择></view>
+</view>

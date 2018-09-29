@@ -1,0 +1,36 @@
+<!--pages/my/my.wxml-->
+<view class='logo'>
+    <view>
+        <image src='../../images/logo.jpg'></image>
+    </view>
+    <view>this.丰兄</view>
+</view>
+<view class='score'>
+    <view>祝福积分</view>
+    <view>195分</view>
+</view>
+
+<navigator url='/pages/ladder/ladder' class='score'>
+    <view>天梯榜</view>
+    <view>第15556位</view>
+</navigator>
+
+<view class='card'>
+    <view>
+        <view>我的祝福卡</view>
+    </view>
+    <view class='gallery'>
+        <view class='node'>
+            <image src='../../images/swiper.jpg'></image>
+        </view>
+        <view class='node'>
+            <image src='../../images/swiper.jpg'></image>
+        </view>
+        <view class='node'>
+            <image src='../../images/swiper.jpg'></image>
+        </view>
+        <view class='node'>
+            <image src='../../images/swiper.jpg'></image>
+        </view>
+    </view>
+</view>

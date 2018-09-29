@@ -1,5 +1,95 @@
 /* pages/resualt/resualt.wxss */
 
+.header{
+    padding:  15px 15px 0;
+}
+.header .content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx #eee solid ;
+    padding-bottom: 15px;
+    font-size: 9pt;
+    color: #ff726a;
+}
+
+.comment{
+    padding: 15px;
+}
+.comment .node{
+    display: flex;
+    padding-bottom: 15px;
+}
+.comment .center{
+    padding:0 0 0 15px;
+}
+.comment .logo{
+    width: 46px;
+    height: 46px;
+}
+.comment .title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.comment .name{
+    font-size: 10pt;
+    color: #3784a8;
+}
+.comment .content{
+    font-size: 11pt;
+}
+.comment .icon{
+    width: 23px;
+    height: 23px;
+}
+.comment label{
+    font-size: 8pt;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .xx_box{
     padding: 1px 15px 15px;
 }

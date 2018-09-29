@@ -8,6 +8,9 @@ Page({
     data: {
         phoneImage:"../../images/info_unselect.png", 
         tagName:"",   
+        status:0, //0识别中  1失败成功  2识别失败 3未知原因
+
+        list:[1,2,3,4],
     },
 
     /**

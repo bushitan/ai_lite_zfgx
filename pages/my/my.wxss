@@ -1,0 +1,40 @@
+/* pages/my/my.wxss */
+.logo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.logo image{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+}
+
+
+.score{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card{
+    padding: 15px;
+}
+.gallery{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+}
+.gallery .node{
+    flex-basis:33.333333%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    /* padding:  5px; */
+}
+.gallery image{
+    width: 100%;
+    width: 72px;
+    height: 96px;
+}

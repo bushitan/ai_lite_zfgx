@@ -1,0 +1,39 @@
+/* pages/index/index.wxss */
+
+.header image{
+    width: 100%;
+    height: 100px;
+}
+
+.map{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+.map image{
+    width: 550rpx;
+    height: 444rpx;
+}
+
+.ai{
+    /* display: flex;
+    justify-content: center; */
+    padding: 15px;
+    text-align: center;
+}
+.ai .phone{
+    font-size: 9pt;
+    color: #dc7d77;
+}
+
+.ai .btn label{
+    font-size: 12pt;
+    color: #fff;
+    background-color: #ff726a;
+    padding: 10px 25px;
+    border-radius: 20px;
+}
+.ai .btn image{
+    width: 32px;
+    height: 32px;
+}
