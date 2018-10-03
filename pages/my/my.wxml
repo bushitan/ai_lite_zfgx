@@ -1,11 +1,17 @@
 <!--pages/my/my.wxml-->
 <view class='logo'>
-    <view>
-        <image src='../../images/logo.jpg'></image>
-    </view>
-    <view style='height:5px;'></view>
-    <view>this.丰兄</view>
+    <block wx:if="{{isLogin}}">
+        <view>
+            <image src='{{userInfo.avatarUrl}}'></image>
+        </view>
+        <view style='height:5px;'></view>
+        <view>{{userInfo.nickName}}</view>
+    </block>
+    <block wx:else>
+        <button size='mini' bindgetuserinfo='getUserInfo'open-type="getUserInfo" lang="zh_CN"  >点击登陆</button>
+    </block>
 </view>
+
 <view class='score'>
     <view>祝福积分</view>
     <view class='des'>195分</view>

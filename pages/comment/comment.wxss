@@ -23,6 +23,7 @@
     background-color: #ffffff;
 }
 .comment .center{
+    width: 100%;
     padding:0 0 0 15px;
 }
 .comment .logo{
@@ -34,7 +35,15 @@
     justify-content: space-between;
     align-items: center;
 }
+.comment .zan{
+    /* width: 100%; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .comment .name{
+    flex-shrink:0;
     font-size: 10pt;
     color: #3784a8;
 }
@@ -55,7 +64,7 @@
 
 .ai{
     position: fixed;
-    bottom: 10px;
+    bottom: 20px;
     width: 100%;
     /* padding: 15px; */
     text-align: center;

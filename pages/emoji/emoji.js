@@ -55,8 +55,23 @@ Page({
         })
     },
 
-
-
+    //选择照片
+    chooseImage() {
+        wx.chooseImage({
+            count: 1,
+            sizeType: ['compressed'],
+            sourceType: ['album'],
+            success(res) {
+                // tempFilePath可以作为img标签的src属性显示图片
+                const tempFilePath = res.tempFilePaths[0]
+                wx.setStorageSync(API.KEY_TEMP_IMAGE_PATH, tempFilePath)
+                wx.navigateTo({
+                    url: '/pages/resualt/resualt',
+                })
+                // console.log(tempFilePaths)
+            }
+        })
+    },
 
 
 

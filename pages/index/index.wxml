@@ -11,10 +11,10 @@
 <view class='wall'>
     <view class='content'>
         <navigator url='/pages/comment/comment' class='editor' > 
-            <view class='title'>钦州三娘湾</view>
+            <view class='title'>{{currentArea.name}}</view>
             <image src='../../images/editor2.png' class='btn'></image>
         </navigator>
-        <xx-danmu  ></xx-danmu>
+        <xx-danmu list="{{danmuList}}" ></xx-danmu>
     </view>
 </view>
 

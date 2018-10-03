@@ -5,7 +5,12 @@
             class='point' 
             style='top:{{item.top}}rpx;left:{{item.left}}rpx;'
             >
-            <image  src='../../images/point.png' catchtap='click' data-point_id="{{item.id}}"></image>
+            <image  
+                src='../../images/point.png' 
+                catchtap='click' 
+                data-point_id="{{item.id}}"
+                data-index="{{index}}"
+                ></image>
             <view class='num'>200</view>
         </view>
     </block>

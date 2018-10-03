@@ -16,7 +16,7 @@
     <view  class='camera_box  '>
         <camera 
             class="camera"             
-            device-position="front"
+            device-position="back"
            
              >
         </camera> 
@@ -24,7 +24,7 @@
 
     <view class='xx_btn'>
         
-        <view class='mode mode_bg_sub' catchtap='clickToPageBank'>
+        <view class='mode mode_bg_sub' catchtap='chooseImage'>
             <view class='node' hover-class="click">
                 <image src='../../images/image.png'></image>
             </view>           

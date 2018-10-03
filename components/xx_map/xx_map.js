@@ -11,7 +11,7 @@ var pointList = [
         name: "河池", id: 3, top: 130, left: 300,
     },
     {
-        name: "南宁", id: 4, top: 300, left: 340,
+        name: "南宁 | 会展中心", id: 4, top: 300, left: 340,
     },
     {
         name: "防城港", id: 5, top: 420, left: 300,
@@ -26,7 +26,7 @@ var pointList = [
         name: "贵港", id: 8, top: 270, left: 500,
     },
     {
-        name: "钦州", id: 9, top: 370, left: 410,
+        name: "钦州 | 三娘湾", id: 9, top: 370, left: 410,
     },
     {
         name: "北海", id: 10, top: 440, left: 440,
@@ -79,8 +79,9 @@ Component({
         //     initindex: e.currentTarget.dataset.index
         // })
 
-
-        this.triggerEvent('click', e.currentTarget.dataset.point_id);
+        
+        this.triggerEvent('click', pointList[e.currentTarget.dataset.index]);
+        // this.triggerEvent('click', e.currentTarget.dataset.point_id);
     },
   }
 })

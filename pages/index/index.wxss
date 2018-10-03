@@ -14,6 +14,7 @@
 }
 
 .editor .title{
+    font-size: 11pt;
     width: 120px;
     text-align: left;
     padding:5px 5px 5px 0;

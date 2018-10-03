@@ -34,11 +34,12 @@ module.exports = {
 
 
     KEY_SESSION: KEY_SESSION,
-    KEY_USER: KEY_USER,
+    KEY_USER_INFO: "user_info",
     KEY_SELF_CARD: "self_card",
     KEY_SELF_SCORE: "self_score",
     KEY_SELF_TALK: "self_talk",
     KEY_TEMP_IMAGE_PATH: "temp_image_path",
+    KEY_CURRENT_AREA: "currentArea",
 }
 
 

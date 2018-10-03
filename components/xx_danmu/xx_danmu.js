@@ -45,10 +45,23 @@ Component({
         pop6: { top: 50, left: 30, name: "2", content: "abc", z: 1, logo: "../../images/logo.jpg" },
         pop7: { top: 50, left: 30, name: "2", content: "abc", z: 1, logo: "../../images/logo.jpg" },
         index:0,
+        windowWidth:375,
+        windowHeight:600,
     },
 
     ready(){
         var self = this
+        wx.getSystemInfo({
+            success: function (e) {
+                self.windowWidth = e.windowWidth
+                self.windowHeight = e.windowHeight
+                // console.log(e.windowWidth)
+            },
+        })
+
+        var obj = self.data.list[self.data.index % self.data.list.length]
+        self.newPop(obj.logo, obj.name, obj.content)
+
         var interval = setInterval(
             function () {
                 // for (var i=0;i<self.data.list.length;i++){
@@ -56,7 +69,7 @@ Component({
                     self.newPop(obj.logo, obj.name, obj.content)
                 // }
             }
-            , 1000);    
+            , 1500);    
 
     },
     detached(){
@@ -85,7 +98,7 @@ Component({
                 timingFunction: 'fadeIn',
             })
             this.animation.opacity(1).step({ delay: 0, duration: 500 })
-            this.animation.opacity(0).step({ delay: 2000, duration: 1500 })
+            this.animation.opacity(0).step({ delay: 8000, duration: 1500 })
             var index = this.data.index
             if (index % 7 == 0) {
                 this.setData({ pop1: this.createPop(this.data.pop1, logo, name, content) })
@@ -122,8 +135,11 @@ Component({
         },  
 
         createPop(pop,logo, name, content){
-            var left = Math.random() * 310
-            var top = Math.random() * 50
+
+            var left = Math.random() * (this.windowWidth - 30 - 70)
+            // var left =280
+            var top = Math.random() * (this.windowHeight - 380 - 80)
+            // var top = Math.random() * 50
             var index = this.data.index
             pop.logo = logo
             pop.name = name

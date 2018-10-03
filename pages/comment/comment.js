@@ -1,4 +1,6 @@
 // pages/resualt/resualt.js
+var APP = getApp()
+var API = require('../../utils/api.js')
 var GP
 Page({
 
@@ -6,7 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        list:[1,2,3,4],
+        danmuList:[],
     },
 
     /**
@@ -16,6 +18,9 @@ Page({
         GP = this
         wx.setNavigationBarTitle({
             title:"钦州--三婆石祝福墙"
+        })
+        GP.setData({
+            danmuList: APP.globalData.danmu
         })
 
     },

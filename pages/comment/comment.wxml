@@ -7,20 +7,20 @@
 </view> -->
 
 <view class='comment'>
-    <block wx:for="{{list}}">
+    <block wx:for="{{danmuList}}">
         <view class='node'>
             <view>
-                <image class='logo' src='../../images/logo.jpg'></image>
+                <image class='logo' src='{{item.logo}}'></image>
             </view>
             <view class='center'>
                 <view class='title'>
-                    <view class='name'>壮丁阿图</view>
-                    <view  class='title'>
+                    <view class='name'>{{item.name}}</view>
+                    <view  class='zan'>
                         <image class='icon' src='../../images/point.png'></image>
                         <label>7</label>
                     </view>
                 </view>
-                <view class='content'>舟车疲劳，不必捞回来，监控就好。我妈老这样说</view>
+                <view class='content'>{{item.content}}</view>
             </view>
         </view>
     </block>

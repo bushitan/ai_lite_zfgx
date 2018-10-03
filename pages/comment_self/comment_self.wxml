@@ -9,7 +9,7 @@
         <!-- <view class='phone'>AI识别柳宗元雕像</view>
         <view style='height:20px;'></view> -->
         <view url='/pages/emoji/emoji' catchtap='sendZan' class='btn'>
-            <view class='content'>  
+            <view class='content'  catchtap='send'>  
                 <image  src='../../images/send.png'></image>
                 <label>送出祝福</label>
             </view>
