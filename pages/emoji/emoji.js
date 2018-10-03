@@ -26,14 +26,14 @@ Page({
     onLoad: function (options) {
         GP = this
 
-        wx.getSystemInfo({
-            success: function (res) {
-                var sizeWidth = res.windowWidth - 30
-                GP.setData({
-                    sizeWidth: sizeWidth 
-                })
-            }
-        })
+        // wx.getSystemInfo({
+        //     success: function (res) {
+        //         var sizeWidth = res.windowWidth - 30
+        //         GP.setData({
+        //             sizeWidth: sizeWidth 
+        //         })
+        //     }
+        // })
         // wx.setNavigationBarTitle({ title: "寻找-钦州三生石"})
         // GP.faceAI()
     },

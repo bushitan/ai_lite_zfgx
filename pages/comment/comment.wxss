@@ -14,11 +14,13 @@
 }
 
 .comment{
-    padding: 15px;
+    /* padding: 15px 0; */
 }
 .comment .node{
     display: flex;
-    padding-bottom: 15px;
+    padding:15px;
+    margin-top: 5px;
+    background-color: #ffffff;
 }
 .comment .center{
     padding:0 0 0 15px;
@@ -70,7 +72,7 @@
 .ai .btn .content{
     font-size: 12pt;
     color: #fff;
-    background-color: #2ebe60;
+    background-color: #ff726a;
     padding:10px 25px;
     border-radius: 20px;
     width: 150px;

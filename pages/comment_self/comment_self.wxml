@@ -1,6 +1,6 @@
 <!--pages/comment_self/comment_self.wxml-->
 <view class='box'>
-    <textarea></textarea>
+    <textarea placeholder='祝福广西' placeholder-style='background-color:#ffffff;'></textarea>
     <!-- <view class='btn'>
         <button type='primary'>送出祝福</button>
     </view> -->

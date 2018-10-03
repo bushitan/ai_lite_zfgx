@@ -16,7 +16,7 @@
                 <view class='title'>
                     <view class='name'>壮丁阿图</view>
                     <view  class='title'>
-                        <image class='icon' src='../../images/camera.png'></image>
+                        <image class='icon' src='../../images/point.png'></image>
                         <label>7</label>
                     </view>
                 </view>

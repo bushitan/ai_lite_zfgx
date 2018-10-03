@@ -34,7 +34,7 @@ textarea{
 .ai .btn .content{
     font-size: 12pt;
     color: #fff;
-    background-color: #2ebe60;
+    background-color: #ff726a;
     padding:10px 25px;
     border-radius: 20px;
     width: 150px;

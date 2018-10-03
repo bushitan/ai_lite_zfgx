@@ -10,6 +10,7 @@
     flex-direction: column;
     text-align: center;
     padding: 25px;
+    margin-top: 5px;
     background-color: #fff;
 }
 .logo image{

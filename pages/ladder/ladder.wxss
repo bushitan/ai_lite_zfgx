@@ -9,7 +9,7 @@
     justify-content:space-between;
     align-items: center;
     background-color: #fff;
-    margin-bottom: 5px;
+    margin-top: 5px;
 }
 .left{
     width: 100%;

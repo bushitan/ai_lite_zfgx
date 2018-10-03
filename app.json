@@ -14,7 +14,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "backgroundColor": "#FAFAFA",
-        "navigationBarBackgroundColor": "#FAFAFA",
+        "navigationBarBackgroundColor": "#ffffff",
         "navigationBarTitleText": "祝福广西",
         "navigationBarTextStyle": "black"
     },
@@ -23,6 +23,8 @@
         "downloadFile": 15000
     },
     "tabBar": {
+        "borderStyle":"white",
+        "backgroundColor":"#ffffff",
         "color": "#888",
         "selectedColor": "#ff726a",
         "list": [{
