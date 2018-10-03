@@ -1,0 +1,4 @@
+/* pages/article/article.wxss */
+.content{
+    padding: 15px;
+}

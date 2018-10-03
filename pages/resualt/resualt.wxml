@@ -1,44 +1,50 @@
 
-<!-- <view class='xx_box'>
+<view class='xx_box'>
     <view class='xx_card'>
         <view class='xx_image'>
-            <image class='org' src='{{phoneImage}}' mode='widthFix'></image>
+            <image class='org' src='{{tempImage}}' mode='aspectFit'></image>
         </view>
 
         <view style='height:15px'></view>
-        <view class='sf'>
-            <image   src='../../images/sf.png'></image>
-            <label>{{tagName}}</label>          
-        </view>
-        <view style='height:15px'></view>
     </view>
+
+    <navigator url='/pages/comment/comment' class='dialog' >努力识别中...</navigator> 
+
+    <view class='xx_btn'>
+        <view class='mode mode_bg_sub' catchtap='back'>
+            <view class='node' hover-class="click">
+                <image src='../../images/back.png'></image>
+            </view>           
+        </view>
+
+        <!-- <view class='mode mode_bg_center' catchtap='clickCamera'>
+            <view class='node level_color_1'  
+                hover-class="click" >
+                <image class='image'  src='../../images/camera_gray.png'></image>
+            </view>
+        </view> -->
+        
+        <view class='mode mode_bg_sub' catchtap='openDialog' > 
+            <view class='node' hover-class="click">
+                <!-- 错 -->
+                <image src='../../images/error.png'></image>
+            </view>    
+        </view>
+    </view>
+
+    <!-- <view catchtap='back'>重新识别</view>
+   -->
+</view>
+
+ <xx-dialog data-model="dialogvisible" visible="{{dialogvisible}}" position="{{position}}" title="{{title}}" fullscreen="{{options.fullscreen}}" opacity="{{opacity}}" show-close="{{options.showclose}}" show-footer="{{options.showfooter}}" width="{{width}}"
+close-on-click-modal="{{options.closeonclickmodal}}" bindclose="handleClose" bindopen="handleOpen" bindconfirm="handleConfirm">
     <view>
-        <button catchtap='toAI'>再次识别</button>
+         <!-- <textarea focus='true' placeholder='请填写正确名称'></textarea> -->
+        <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+            <picker-view-column>
+                <view wx:for="{{areaList}}" style="line-height: 50px">{{item}}</view>
+            </picker-view-column>
+        </picker-view>
     </view>
-</view> -->
-<view class='header'>
-    <view class='content'>
-        <view>返回</view>
-        <view>送祝福</view>
-    </view>
-</view>
-
-<view class='comment'>
-    <block wx:for="{{list}}">
-        <view class='node'>
-            <view>
-                <image class='logo' src='../../images/logo.jpg'></image>
-            </view>
-            <view class='center'>
-                <view class='title'>
-                    <view class='name'>壮丁阿图</view>
-                    <view  class='title'>
-                        <image class='icon' src='../../images/camera.png'></image>
-                        <label>7</label>
-                    </view>
-                </view>
-                <view class='content'>舟车疲劳，不必捞回来，监控就好。我妈老这样说</view>
-            </view>
-        </view>
-    </block>
-</view>
+</xx-dialog>
+<canvas  canvas-id='scannerCanvas' style=' width: {{width}}px;height: {{height}}px;' ></canvas>

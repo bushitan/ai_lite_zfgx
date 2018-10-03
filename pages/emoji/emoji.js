@@ -4,6 +4,9 @@ var upng = require('../../utils/upng-js/UPNG.js')
 
 const canvasID = 'scannerCanvas'
 var phone64 = ""
+
+
+var API = require('../../utils/api.js')
 Page({
 
     /**
@@ -31,13 +34,43 @@ Page({
                 })
             }
         })
+        // wx.setNavigationBarTitle({ title: "寻找-钦州三生石"})
         // GP.faceAI()
     },
     onShow(){
-        GP.setData({
-            isPhone:true,
+    },
+
+    // 点击拍照
+    clickCamera() {
+        const camera = wx.createCameraContext()
+        camera.takePhoto({
+            quality: 'high',
+            success: (res) => {
+                console.log(res)
+                wx.setStorageSync(API.KEY_TEMP_IMAGE_PATH, res.tempImagePath)
+                wx.navigateTo({
+                    url: '/pages/resualt/resualt',
+                })                
+            }
         })
     },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     toResualt(){
         //TODO 把base数据存在storage里
@@ -54,6 +87,12 @@ Page({
 
     // 1 拍照
     takePhoto() {
+        // wx.navigateTo({
+        //     url: '/pages/resualt/resualt',
+        // })
+        // return
+
+
         if (GP.data.isPhone == false) return
         const camera = wx.createCameraContext()
         camera.takePhoto({
@@ -101,6 +140,7 @@ Page({
                 let pngData = upng.encode([res.data.buffer], GP.data.sizeWidth, GP.data.sizeWidth)
                 let base64 = wx.arrayBufferToBase64(pngData)
                 phone64 = base64
+                console.log(base64.length)
                 // GP.easyDL()  //获取百度对比结果
                 // GP.dish() //菜品识别
                 GP.faceAI()

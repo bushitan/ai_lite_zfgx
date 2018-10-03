@@ -9,6 +9,6 @@
             </view>
             <view class='name'>this.丰兄</view>
         </view>
-        <view>15446</view>
+        <view class='des'>15446</view>
     </view>
 </block>

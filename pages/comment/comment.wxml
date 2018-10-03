@@ -1,10 +1,10 @@
 
-<view class='header'>
+<!-- <view class='header'>
     <view class='content'>
-        <view>返回</view>
-        <view>送祝福</view>
+        <view ></view>
+        <view catchtap='sendZan'>写祝词</view>
     </view>
-</view>
+</view> -->
 
 <view class='comment'>
     <block wx:for="{{list}}">
@@ -24,4 +24,18 @@
             </view>
         </view>
     </block>
+</view>
+
+
+<view class='ai'>
+    <!-- <view class='phone'>AI识别柳宗元雕像</view>
+    <view style='height:20px;'></view> -->
+    <view url='/pages/emoji/emoji' catchtap='sendZan' class='btn'>
+        <view class='content'>  
+            <image  src='../../images/editor_white.png'></image>
+            <label>写祝词</label>
+        </view>
+    </view>
+    <view style='height:10px;'></view>
+    <!-- <view class='phone' catchtap='chooseImage'>从相册选择></view> -->
 </view>

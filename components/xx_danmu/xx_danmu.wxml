@@ -1,0 +1,59 @@
+
+
+
+<!-- <button catchtap='add'>+</button> -->
+<view class='box'>
+        <view class='pop disappear' animation="{{animation1}}" style='top:{{pop1.top}}px;left:{{pop1.left}}px;opacity:0;z-index:{{pop1.z}};' >
+            <view class='user'>
+                <image class='logo' src='{{pop1.logo}}'> </image>
+                <label class='name'>{{pop1.name}}</label>
+            </view>
+            <view class='content'>{{pop1.content}}</view>
+        </view>
+
+        <view class='pop disappear' animation="{{animation2}}" style='top:{{pop2.top}}px;left:{{pop2.left}}px;opacity:0;z-index:{{pop2.z}};'>
+            <view class='user'>
+                <image class='logo' src='{{pop2.logo}}'> </image>
+                <label class='name'>{{pop2.name}}</label>
+            </view>
+            <view class='content'>{{pop2.content}}</view>
+        </view>
+        <view class='pop disappear' animation="{{animation3}}" style='top:{{pop3.top}}px;left:{{pop3.left}}px;opacity:0;z-index:{{pop3.z}};'>
+            <view class='user'>
+                <image class='logo' src='{{pop3.logo}}'> </image>
+                <label class='name'>{{pop3.name}}</label>
+            </view>
+            <view class='content'>{{pop3.content}}</view>
+        </view>
+        <view class='pop disappear' animation="{{animation4}}" style='top:{{pop4.top}}px;left:{{pop4.left}}px;opacity:0;z-index:{{pop4.z}};'>
+            <view class='user'>
+                <image class='logo' src='{{pop4.logo}}'> </image>
+                <label class='name'>{{pop4.name}}</label>
+            </view>
+            <view class='content'>{{pop4.content}}</view>
+        </view>
+        
+        <view class='pop disappear' animation="{{animation5}}" style='top:{{pop5.top}}px;left:{{pop5.left}}px;opacity:0;z-index:{{pop5.z}};'>
+            <view class='user'>
+                <image class='logo' src='{{pop5.logo}}'> </image>
+                <label class='name'>{{pop5.name}}</label>
+            </view>
+            <view class='content'>{{pop5.content}}</view>
+        </view>
+        
+        <view class='pop disappear' animation="{{animation6}}" style='top:{{pop6.top}}px;left:{{pop6.left}}px;opacity:0;z-index:{{pop6.z}};'>
+            <view class='user'>
+                <image class='logo' src='{{pop6.logo}}'> </image>
+                <label class='name'>{{pop6.name}}</label>
+            </view>
+            <view class='content'>{{pop6.content}}</view>
+        </view>
+        
+        <view class='pop disappear' animation="{{animation7}}" style='top:{{pop7.top}}px;left:{{pop7.left}}px;opacity:0;z-index:{{pop7.z}};'>
+            <view class='user'>
+                <image class='logo' src='{{pop7.logo}}'> </image>
+                <label class='name'>{{pop7.name}}</label>
+            </view>
+            <view class='content'>{{pop7.content}}</view>
+        </view>
+</view>

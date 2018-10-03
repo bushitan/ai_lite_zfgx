@@ -1,2 +1,20 @@
 <!--pages/comment_self/comment_self.wxml-->
-<text>pages/comment_self/comment_self.wxml</text>
+<view class='box'>
+    <textarea></textarea>
+    <!-- <view class='btn'>
+        <button type='primary'>送出祝福</button>
+    </view> -->
+
+    <view class='ai'>
+        <!-- <view class='phone'>AI识别柳宗元雕像</view>
+        <view style='height:20px;'></view> -->
+        <view url='/pages/emoji/emoji' catchtap='sendZan' class='btn'>
+            <view class='content'>  
+                <image  src='../../images/send.png'></image>
+                <label>送出祝福</label>
+            </view>
+        </view>
+        <view style='height:10px;'></view>
+        <!-- <view class='phone' catchtap='chooseImage'>从相册选择></view> -->
+    </view>
+</view>

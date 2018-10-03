@@ -14,11 +14,23 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-        
+        wx.setNavigationBarTitle({
+            title:"钦州--三婆石祝福墙"
+        })
 
     },
 
     toAI(){
         wx.navigateBack({ })
+    },
+    sendZan(){
+        wx.navigateTo({
+            url: '/pages/comment_self/comment_self',
+        })
+    },
+    back(){
+        wx.switchTab({
+            url: '/pages/index/index',
+        })
     },
 })

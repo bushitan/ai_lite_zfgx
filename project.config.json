@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
-	"appid": "wxd1b79bdd8a98497c",
-	"projectname": "ai_lite_zfgx",
+	"appid": "wxb5f4203d6bc1d799",
+	"projectname": "%E7%A5%9D%E7%A6%8F%E5%B9%BF%E8%A5%BF",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -36,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -59,7 +59,19 @@
 				{
 					"id": -1,
 					"name": "我的祝福",
-					"pathName": "pages/comment_self/comment_self"
+					"pathName": "pages/comment_self/comment_self",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "相机",
+					"pathName": "pages/emoji/emoji",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "识别结果",
+					"pathName": "pages/resualt/resualt"
 				}
 			]
 		}

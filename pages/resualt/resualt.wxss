@@ -13,47 +13,103 @@
     color: #ff726a;
 }
 
-.comment{
+.dialog{
+    font-size: 13pt;
     padding: 15px;
+    text-align: center;
 }
-.comment .node{
+textarea{
+    width: 100%;
+    background-color: #ffff;
+    border: 1rpx #aaa dashed;
+    border-radius: 5px;
+}
+
+
+
+canvas{
+    position: absolute;
+    top:-10000px;
+
+}
+
+
+
+.xx_btn{
     display: flex;
-    padding-bottom: 15px;
+    justify-content: space-around;
+    margin-top: 40px;
 }
-.comment .center{
-    padding:0 0 0 15px;
-}
-.comment .logo{
-    width: 46px;
-    height: 46px;
-}
-.comment .title{
+
+.mode{
+    color: #fff;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+     justify-content: space-around; 
+    align-content: center;
+    text-align: center;
+    border-radius: 50%;
+    
 }
-.comment .name{
-    font-size: 10pt;
-    color: #3784a8;
+.mode_bg_center{
+    width: 70px;
+    height: 70px;
+    margin: 0 40px;
+    background-color: #eeede8;
+    box-shadow:0px 1px 1px #828282 inset;
 }
-.comment .content{
-    font-size: 11pt;
+.mode .node{
+    margin: auto;
+     line-height: 58px;
+    font-size: 17pt;
+     overflow:hidden;    
+     width: 58px;
+    height: 58px; 
+    /* color: #ec563e; */
+    
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow:0px 1px 1px #828282;
+    font-weight: bold;
 }
-.comment .icon{
-    width: 23px;
-    height: 23px;
-}
-.comment label{
-    font-size: 8pt;
+.mode .image{
+    width: 100%;
+    height:100%;
 }
 
+.mode_bg_sub{
+    width: 60px;
+    height: 60px;
+    /* margin: 10px 0; */
+    background-color: #eeede8;
+    box-shadow:0px 1px 1px #828282 inset;
+}
 
+.mode_bg_sub .node{
+    margin: auto;
+     line-height: 49px;
+    font-size: 14pt;
+     overflow:hidden;    
+     width: 49px;
+    height: 49px; 
+    color: #ec563e;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow:0px 1px 1px #828282;
+    font-weight: bold;
+    
+    display: flex;
+     justify-content: space-around; 
+    align-content: center;
+}
+.mode_bg_sub image{
+    margin: auto;
+    width: 21px;
+    height: 21px;
+}
 
-
-
-
-
-
+.click {
+    background-color: #eee !important;
+}
 
 
 
@@ -110,7 +166,7 @@
     /* position: absolute;
     top: 0; */
     width: 100%;
-    /* height: 250px; */
+    height: 300px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }

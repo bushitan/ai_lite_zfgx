@@ -1,12 +1,70 @@
 
+
 <view class='xx_box'>
+    <view class='header'>
+        <view class='title'>寻找--三婆石头</view>
+        <view class='content'>
+            <view class='image'>
+                <image src='../../images/swiper.jpg'></image>
+            </view>
+            <view class='des'>
+                <view class='summary'>钦州三娘湾是广西十佳景区之一，位于广西壮族自治区钦州市犀牛脚镇南海北部湾沿岸。南邻北部湾，背靠乌雷山，掩映在枝繁叶茂的红树林里的海滩洁白柔软，站在如天外流星坠落海滩的三婆石上，朝可观旭日东升，晚可赏夕阳日落斜照，还可拜乌雷伏波庙、游威德寺、观东汉大将风采。更美妙的是，登上渔船出海观光，可以捕捉海鱼，吹吹海风，还能够看看珍奇的中华白海豚。</view> 
+                <navigator url='/pages/article/article' class='more'>详情></navigator>
+            </view>
+        </view>
+    </view>
+    <view  class='camera_box  '>
+        <camera 
+            class="camera"             
+            device-position="front"
+            style=' width: {{sizeWidth}}px;height: {{sizeWidth}}px;' >
+        </camera> 
+    </view> 
+
+    <view class='xx_btn'>
+        
+        <view class='mode mode_bg_sub' catchtap='clickToPageBank'>
+            <view class='node' hover-class="click">
+                <image src='../../images/image.png'></image>
+            </view>           
+        </view>
+
+        <view class='mode mode_bg_center' catchtap='clickCamera'>
+            <view class='node level_color_1'  
+                hover-class="click" >
+                <image class='image'  src='../../images/camera_gray.png'></image>
+            </view>
+        </view>
+
+        
+        <view class='mode mode_bg_sub' catchtap='clickToPageMy' > 
+            <view class='node' hover-class="click">
+                <image src='../../images/ask.png'></image>
+            </view>    
+        </view>
+    </view>
+    <!-- 从相册选择
+    <view class='footer'>祝福广西</view> -->
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <view class='xx_box'>
 
      <view  class='camera_box  {{isPhone==false?"camera_canvas":""}}'>
         <camera 
             class="camera"             
             device-position="front"
             style=' width: {{sizeWidth}}px;height: {{sizeWidth}}px;' >
-            <!-- <cover-image  style=' width: {{sizeWidth}}px;height: {{sizeWidth}}px;'  catchtap='takePhoto' src='../../images/cover_bowl.png'></cover-image> -->
         </camera> 
     </view> 
     <view  class='camera_box {{isPhone==true?"camera_canvas":""}}'>
@@ -20,12 +78,16 @@
             <view class='node level_color_1'  
                 hover-class="click" 
                 wx:if="{{currentLevel == STRANGER}}">
-                    <!-- 嗦 -->
-                <image class='image'  src='../../images/camera.png'></image>
+                <image class='image'  src='../../images/camera_gray.png'></image>
             </view>
         </view>
     </view>
 
-    <view class='footer'>中国嗦粉研究中心</view>
-</view>
+    <view class='footer'>祝福中国</view>
+</view> -->
 
+
+
+
+            <!-- <cover-image  style=' width: {{sizeWidth}}px;height: {{sizeWidth}}px;'  catchtap='takePhoto' src='../../images/cover_bowl.png'></cover-image> -->
+                    <!-- 嗦 -->

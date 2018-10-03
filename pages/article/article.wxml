@@ -1,0 +1,4 @@
+<!--pages/article/article.wxml-->
+<view class='content'>
+    <rich-text nodes="{{article}}" ></rich-text>
+</view>

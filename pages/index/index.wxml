@@ -1,21 +1,32 @@
 <!--pages/index/index.wxml-->
 
-<view class='header'>
-    <image src='../../images/swiper.jpg' ></image>
-    <view></view>
-</view>
-<view class='map'>
-    <image src='../../images/map.jpg' ></image>
+<!-- <view class='header'>
+    <navigator url='/pages/article/article'>
+        <image src='{{swiper}}' ></image>
+    </navigator>
+</view> -->
+
+<xx-map catchclick="clickTorch"></xx-map>
+
+<view class='wall'>
+    <view class='content'>
+        <navigator url='/pages/comment/comment' class='editor' > 
+            <view class='title'>钦州三娘湾</view>
+            <image src='../../images/editor2.png' class='btn'></image>
+        </navigator>
+        <xx-danmu  ></xx-danmu>
+    </view>
 </view>
 
 <view class='ai'>
     <!-- <view class='phone'>AI识别柳宗元雕像</view>
     <view style='height:20px;'></view> -->
-    <navigator url='/pages/emoji/emoji' class='btn'>
-        <label>  
-            <image   src='../../images/camera.png'></image>
-            送祝福</label>
-    </navigator>
-    <view style='height:20px;'></view>
-    <view class='phone'>从相册选择></view>
+    <view url='/pages/emoji/emoji' catchtap='toEmoji' class='btn'>
+        <view class='content'>  
+            <image  src='../../images/camera.png'></image>
+            <label>送祝福，抢福卡</label>
+        </view>
+    </view>
+    <view style='height:10px;'></view>
+    <!-- <view class='phone' catchtap='chooseImage'>从相册选择></view> -->
 </view>
