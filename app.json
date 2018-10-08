@@ -4,6 +4,8 @@
         "pages/resualt/resualt",
         "pages/article/article",
         "pages/emoji/emoji",
+        "pages/comment/comment",
+        "pages/comment_self/comment_self",
         "pages/ladder/ladder",
         "pages/my/my"
 
