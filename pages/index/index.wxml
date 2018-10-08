@@ -10,10 +10,11 @@
 
 <view class='wall'>
     <view class='content'>
-        <navigator url='/pages/comment/comment' class='editor' > 
+    <!-- url='/pages/comment/comment' -->
+        <view  class='editor' > 
             <view class='title'>{{currentArea.name}}</view>
-            <image src='../../images/editor2.png' class='btn'></image>
-        </navigator>
+            <!-- <image src='../../images/editor2.png' class='btn'></image> -->
+        </view>
         <xx-danmu list="{{danmuList}}" ></xx-danmu>
     </view>
 </view>
