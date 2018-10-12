@@ -8,16 +8,14 @@
 
 <xx-map catchclick="clickTorch"></xx-map>
 
-<view class='wall'>
+<!-- <view class='wall'>
     <view class='content'>
-    <!-- url='/pages/comment/comment' -->
         <view  class='editor' > 
             <view class='title'>{{currentArea.name}}</view>
-            <!-- <image src='../../images/editor2.png' class='btn'></image> -->
         </view>
         <xx-danmu list="{{danmuList}}" ></xx-danmu>
     </view>
-</view>
+</view> -->
 
 <view class='ai'>
     <!-- <view class='phone'>AI识别柳宗元雕像</view>

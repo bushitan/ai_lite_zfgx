@@ -22,7 +22,7 @@
     <view class='des'>第15556位</view>
 </navigator>
 
-<view class='card'>
+<!-- <view class='card'>
     <view class='header'>
         <view class='title'>我的祝福卡</view>
         <view class='des'>7/14</view>
@@ -40,7 +40,7 @@
             </view> 
         </block>
     </view>
-</view>
+</view> -->
 
 <view class='dialog' hidden='{{true}}'>
     <view>

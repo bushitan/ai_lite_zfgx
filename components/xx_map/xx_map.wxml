@@ -1,5 +1,5 @@
 <view class='map'>
-    <image class='bg' src='../../images/map_org1.jpg' catchtap='clickArea' data-area_id="1"></image>
+    <image class='bg' src='../../images/map_org1.png' catchtap='clickArea' data-area_id="1"></image>
     <block wx:for="{{list}}" wx:key="index">
         <view 
             class='point' 
