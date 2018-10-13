@@ -1,0 +1,14 @@
+
+  <view class='header'>
+        <view class='title'>寻找--三婆石头</view>
+        <view class='content'>
+            <view class='image'>
+                <image src='../../images/swiper.jpg'></image>
+            </view>
+            <view class='des'>
+                <view class='summary'>钦州三娘湾是广西十佳景区之一，位于广西壮族自治区钦州市犀牛脚镇南...</view> 
+                <view class='task'><label>任务</label>：寻找三娘湾的白海豚</view>
+                <navigator url='/pages/article/article' class='more'>详情></navigator>
+            </view>
+        </view>
+    </view>

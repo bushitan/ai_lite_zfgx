@@ -1,6 +1,9 @@
 {
     "usingComponents": {
         "xx-map": "../../components/xx_map/xx_map",
+        "task": "../../components/task/task",
+        "prize": "../../components/prize/prize",
+        
         "xx-danmu": "../../components/xx_danmu/xx_danmu"
     }
 }

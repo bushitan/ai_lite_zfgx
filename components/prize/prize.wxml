@@ -1,0 +1,30 @@
+
+<view class='header'>
+    <view class='title'>奖励</view>
+    <view class='content'>
+        <view class='node'>
+            <image class='icon' src='../../images/index_select.png'></image>
+            <view class='des'>name</view>
+        </view>
+        <view class='node'>
+            <image class='icon' src='../../images/point.png'></image>
+            <view class='des'>name</view>
+        </view>
+        <view class='node'>
+            <image class='icon' src='../../images/my_select.png'></image>
+            <view class='des'>name</view>
+        </view>
+        <!-- <view class='node'>
+            <image class='icon' src='../../images/logo.jpg'></image>
+            <view class='des'>name</view>
+        </view> -->
+    </view>
+</view>
+
+            <!-- <view class='image'>
+                <image src='../../images/swiper.jpg'></image>
+            </view>
+            <view class='des'>
+                <view class='summary'>钦州三娘湾是广西十佳景区之一，位于广西壮族自治区钦州市犀牛脚镇南海北部湾沿岸。南邻北部湾，背靠乌雷山，掩映在枝繁叶茂的红树林里的海滩洁白柔软，站在如天外流星坠落海滩的三婆石上，朝可观旭日东升，晚可赏夕阳日落斜照，还可拜乌雷伏波庙、游威德寺、观东汉大将风采。更美妙的是，登上渔船出海观光，可以捕捉海鱼，吹吹海风，还能够看看珍奇的中华白海豚。</view> 
+                <navigator url='/pages/article/article' class='more'>详情></navigator>
+            </view> -->
