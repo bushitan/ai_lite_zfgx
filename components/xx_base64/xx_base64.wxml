@@ -1,0 +1,8 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <canvas  canvas-id='scannerCanvas' style=' width: {{width}}px;height: {{height}}px;' >        </canvas>

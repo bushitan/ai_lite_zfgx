@@ -63,11 +63,12 @@ Component({
     /**
      * return: 点击列表的index
      */
-    click(e) {
-        this.setData({
-            initindex: e.currentTarget.dataset.index
-        })
-        this.triggerEvent('click', e.currentTarget.dataset.index);
+    clickLeft(e) {
+        // this.setData({
+        //     initindex: e.currentTarget.dataset.index
+        // })
+        console.log(123)
+        this.triggerEvent('clickLeft');
     },
   }
 })

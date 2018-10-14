@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "xx-base64": "../../components/xx_base64/xx_base64",
+        "xx-dialog": "../../components/xx_dialog/xx_dialog"
+    }
+}

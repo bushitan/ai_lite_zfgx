@@ -1,5 +1,7 @@
 {
     "pages":[
+        
+        "pages/painter/painter",
         "pages/index/index",
         "pages/resualt/resualt",
         "pages/article/article",

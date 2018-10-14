@@ -1,7 +1,7 @@
 
         <view class='xx_btn'>
 
-            <view class='mode mode_bg_sub' catchtap='chooseImage' onclick="javascript: window.parent.location.href='/zfgx/bless/editor/'">
+            <view class='mode mode_bg_sub' catchtap='clickLeft' >
                 <view class='node' hover-class="click">
                     <image src='/images/image.png'/>
                 </view>

@@ -13,7 +13,7 @@
     </view> 
 
 
-    <xx-btn>
+    <xx-btn catchclickLeft="toPainter">
     </xx-btn>
 
     <!-- <view class='xx_btn'>
