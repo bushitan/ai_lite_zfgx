@@ -1,15 +1,85 @@
 
+
+
+<!-- <wxs module="color">
+var deleteHex = function(str) {
+    console.log(str,231)
+
+   return str.substring(1, str.length); 
+}
+module.exports.deleteHex = deleteHex;
+</wxs>
+<view class='color'>
+    <view class='node' style="background-color:{{pointColor}}">
+       <label>#</label> <input value="{{color.deleteHex(pointColor)}}" placeholder="点的颜色" bindconfirm="inputPointColor"/>
+    </view>
+    <view class='node' style="background-color:{{lineColor}}">
+       <label>#</label> <input value="{{color.deleteHex(lineColor)}}" placeholder="线的颜色" bindconfirm="inputLineColor" />
+    </view>
+</view> -->
+
+<ai-painter 
+    bodyRectangle="{{bodyRectangle}}"
+    landmark="{{landmark}}"
+    catch:currentKey="currentKey"
+    catch:currentIndex="currentIndex"
+    move="{{move}}"
+    bg="{{bg}}"
+    pointColor="{{pointColor}}"
+    lineColor="{{lineColor}}"
+    getImage="{{getImage}}"
+>
+</ai-painter>
+
+
+<!-- 位置选择 -->
+<view class="section">
+  <picker bindchange="bindPickerChange" range-key="name" range="{{keyArray}}" bindchange="pickKey">
+    <view class="picker">
+        <xx-navigte title="当前选择关节点：{{keyArray[keyIndex].name}}"></xx-navigte>
+    </view>
+  </picker>
+</view>
+
+<view class='control'>
+    <image src='../../images/direction_top.png' catchtap='moveTop'></image>
+    <view class='center'>
+        <image src='../../images/direction_left.png' class='left' catchtap='moveLeft'></image>
+        <label>微调</label>
+        <image src='../../images/direction_right.png' catchtap='moveRight'></image>
+    </view>
+    <image src='../../images/direction_bottom.png' catchtap='moveBottom'></image>
+</view>
+
+<ai-make></ai-make>
+
+
+<ai-btn
+    catch:clickChoice="clickChoice"
+    catch:clickDown="clickDown"
+></ai-btn>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
   <movable-area style="height: 200px; width: 200px; ">
     <movable-view style="height: 50px; width: 50px; background: blue;" x="{{x}}" y="{{y}}" direction="all">
     </movable-view>
   </movable-area>
 
-<!-- <xx-base64 url="../../images/body.jpg"></xx-base64> -->
 <xx-base64 url="{{tempImage}}" catchgetBase64="getBase64"></xx-base64>
 
 <view class='xx_box'>
 
-    <!-- <navigator url='/pages/comment/comment' class='dialog' >努力识别中...</navigator> -->
 
     <view class='xx_card'>
         <view class='xx_image'>
@@ -20,8 +90,6 @@
 
         <view style='height:15px'></view>
     </view>
-    <!-- <view catchtap='back'>重新识别</view>
-   -->
 </view>
 
 <view class='loading ' wx:if="{{isLoad}}">
@@ -34,32 +102,10 @@
         </view>           
     </view>
     <view class='center'>钦州三娘湾</view>
-    <!-- <view class='mode mode_bg_center' catchtap='clickCamera'>
-        <view class='node level_color_1'  
-            hover-class="click" >
-            <image class='image'  src='../../images/camera_gray.png'></image>
-        </view>
-    </view> -->
     
     <view class='mode mode_bg_sub' catchtap='openDialog' > 
         <view class='node' hover-class="click">
-            <!-- 错 -->
             <image src='../../images/error.png'></image>
         </view>    
     </view>
-</view>
-
-
-
- <xx-dialog data-model="dialogvisible" visible="{{dialogvisible}}" position="{{position}}" title="{{title}}" fullscreen="{{options.fullscreen}}" opacity="{{opacity}}" show-close="{{options.showclose}}" show-footer="{{options.showfooter}}" width="{{width}}"
-close-on-click-modal="{{options.closeonclickmodal}}" bindclose="handleClose" bindopen="handleOpen" bindconfirm="handleConfirm">
-    <view>
-         <!-- <textarea focus='true' placeholder='请填写正确名称'></textarea> -->
-        <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
-            <picker-view-column>
-                <view wx:for="{{areaList}}" style="line-height: 50px">{{item}}</view>
-            </picker-view-column>
-        </picker-view>
-    </view>
-</xx-dialog>
-<canvas  canvas-id='scannerCanvas' style=' width: {{width}}px;height: {{height}}px;' ></canvas>
+</view> -->

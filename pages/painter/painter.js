@@ -28,8 +28,77 @@ Page({
         phoneImage:"../../images/info_unselect.png", 
         tagName:"",   
 
-        tempImage:"https://cdn.faceplusplus.com.cn/mc-official/scripts/demoScript/images/demo-pic74.jpg",
+            tempImage:"https://cdn.faceplusplus.com.cn/mc-official/scripts/demoScript/images/demo-pic74.jpg",
+
+
+        // AI识别结果
+        bg: "../../images/body.jpg",
+        landmark: {},
+        touchKey:"",
+        move:{},
+        
+        // 选择器
+        keyIndex:0,
+        keyArray: [
+            { name: "头部", value: "head" },
+            { name: "脖子", value: "neck" },
+            { name: "左肩", value: "left_shoulder" },
+            { name: "左肘", value: "left_elbow" },
+            { name: "左手", value: "left_hand" },
+            { name: "右肩", value: "right_shoulder" },
+            { name: "右肘", value: "right_elbow" },
+            { name: "右手", value: "right_hand" },
+            { name: "左臀", value: "left_buttocks" },
+            { name: "左膝", value: "left_knee" },
+            { name: "左脚", value: "left_foot" },
+            { name: "右臀", value: "right_buttocks" },
+            { name: "右膝", value: "right_knee" },
+            { name: "右脚", value: "right_foot" },
+        ],
+
+        //颜色
+        pointColor: "#6596ed",
+        lineColor:"#6596ed",
+        //获取图片
+        getImage:false,
+
+
     },
+
+    // 输入颜色
+    inputPointColor(e) {
+        var value = e.detail.value
+        value = value.substring(0, 6)
+        // var color = ("#" + value).substring(1, 7)
+        GP.setData({ pointColor: "#" + value })
+    }, 
+    inputLineColor(e) {
+        var value = e.detail.value
+        value = value.substring(0, 6)
+        GP.setData({ lineColor: "#" + value })
+    }, 
+
+    // 更换图片
+    clickChoice() {
+        wx.chooseImage({
+            count: 1,
+            sizeType: ['compressed'],
+            sourceType: ['album', 'camera'],
+            success(res) {
+                // tempFilePath可以作为img标签的src属性显示图片
+                const tempFilePaths = res.tempFilePaths
+            }
+        })
+    },
+
+      
+    clickDown() { 
+        GP.setData({ getImage:true})
+    },
+
+
+
+
     save(){
         wx.showModal({
             title: '保存失败',
@@ -42,50 +111,82 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-        
-        // console.log("ao")
-        // var emoji = wx.getStorageSync(API.KEY_TEMP_IMAGE_PATH)
-        // var step = emoji.step
-        // // var step = 6
-        // GP.setData({
-        //     emojiBase64: emoji.emojiBase64,
-        //     header: bgList[step].header,
-        //     bgImage: bgList[step].bgImage,
-        //     x: bgList[step].x,
-        //     y: bgList[step].y,
+        GP.bodyAI()
+        // wx.getSystemInfo({
+        //     success:function(res){
+        //         GP.setData({
+        //             windowWidth: res.windowWidth,
+        //             windowHeight: res.windowHeight
+        //         })
+        //         wx.getImageInfo({
+        //             src: '../../images/body.jpg',
+        //             success(res) {
+        //                 console.log(res)
+        //                 GP.setData({
+        //                     bgWidth: res.width,
+        //                     bgHeight: res.height
+        //                 })
+        //                 // GP.bodyAI()
+        //             }
+        //         })
+        //     }
         // })
+       
 
-
-        // console.log(ai)
-        // var tagName
-        // if (ai.tagName == "非菜") 
-        //     tagName = "这不是粉啊！"
-        // else if (ai.tagName.indexOf("面") != -1) 
-        //     tagName = "有面的，好难嗦T_T！"
-        // else if (ai.tagName.indexOf("粉") != -1) 
-        //     tagName = ai.tagName + ",嗦粉好嗨森^_^！"
-        // else if (ai.tagName == "") 
-        //     tagName = "我也不懂这是啥！"
-        // else 
-        //     tagName = "拿" + ai.tagName + "忽悠我，我要嗦粉"
-        
-        // GP.setData({
-        //     phoneImage:ai.phoneImage,
-        //     tagName: tagName,
-        //     // score: parseInt(ai.score * 100),
-        //     // score: ai.score,
-        // })
     },
 
     toAI(){
         wx.navigateBack({ })
     },
-    getBase64(e){
+    getBase64getBase64(e){
         console.log(e.detail)
         // GP.bodyAI(e.detail)
     },
 
-    bodyAI(base64) {
+    pickKey(e){
+        console.log(e.detail)
+        var index = e.detail.value
+        GP.setData({
+            keyIndex: index,
+            touchKey:GP.data.keyArray[index].value,
+        })
+    },
+    currentIndex(e){
+        var index = e.detail
+        GP.setData({
+            keyIndex: index,
+            touchKey: GP.data.keyArray[index].value,
+        })
+    },
+
+    currentKey(e){
+        var key = e.detail
+        GP.setData({
+            touchKey:key
+        })
+    },
+
+    //移动
+    moveTop() {
+        var _move = { key: GP.data.touchKey, x: 0, y: -1, }
+        GP.setData({ move: _move })
+    },
+    moveLeft() {
+        var _move = { key: GP.data.touchKey, x: -1, y:0 }
+        GP.setData({ move: _move })
+    },
+    moveRight() {
+        var _move = { key: GP.data.touchKey, x: 1, y: 0}
+        GP.setData({ move: _move })
+    },
+    moveBottom() {
+        var _move = { key: GP.data.touchKey, x: 0, y: 1, }
+        GP.setData({ move: _move })
+    },
+
+
+
+    bodyAI() {
         console.log("in face AI")
         wx.request({
             // url: 'https://api-cn.faceplusplus.com/facepp/v3/detect',
@@ -97,72 +198,21 @@ Page({
             data: {
                 api_key: "y-IDakOn3S3kW0vPX2kzg8sLrZtNLyb5",
                 api_secret: "dSNBrCEpLcEA0gemfPHetg8G26UEIBkh",
-                // image_base64: base64,
+
                 image_url:"https://cdn.faceplusplus.com.cn/mc-official/scripts/demoScript/images/demo-pic74.jpg",   
                 // return_attributes: 'emotion',
             },
             success: (res) => {
                 console.log(res)
+
+                GP.setData({
+                    bodyRectangle: res.data.skeletons[0].body_rectangle,
+                    landmark: res.data.skeletons[0].landmark
+                })
                 // console.log(res.data.faces[0].attributes.emotion)
                 // var step = GP.sort(res.data.faces[0].attributes.emotion)
                 // GP.toEmojiResualt(step)
 
-
-
-
-//                 "1539445140,1dc3f9dd-ba57-42c6-8469-ece0f0bee909"
-//                 skeletons
-//                 :
-//                 Array(1)
-//                 0
-// :
-//                 body_rectangle
-//                 :
-//                 { width: 80, top: 201, left: 221, height: 207 }
-//                 landmark
-//                 :
-//                 head
-//                 :
-//                 { y: 2, x: 34, score: 0.6236738 }
-//                 left_buttocks
-//                 :
-//                 { y: 102, x: 42, score: 0.5800599 }
-//                 left_elbow
-//                 :
-//                 { y: 72, x: 67, score: 0.57144314 }
-//                 left_foot
-//                 :
-//                 { y: 197, x: 39, score: 0.57855994 }
-//                 left_hand
-//                 :
-//                 { y: 72, x: 59, score: 0.47889563 }
-//                 left_knee
-//                 :
-//                 { y: 141, x: 44, score: 0.5776876 }
-//                 left_shoulder
-//                 :
-//                 { y: 41, x: 54, score: 0.551361 }
-//                 neck
-//                 :
-//                 { y: 37, x: 37, score: 0.54930395 }
-//                 right_buttocks
-//                 :
-//                 { y: 102, x: 27, score: 0.61194927 }
-//                 right_elbow
-//                 :
-//                 { y: 63, x: 9, score: 0.6742425 }
-//                 right_foot
-//                 :
-//                 { y: 176, x: 27, score: 0.5411666 }
-//                 right_hand
-//                 :
-//                 { y: 72, x: 14, score: 0.5395435 }
-//                 right_knee
-//                 :
-//                 { y: 141, x: 22, score: 0.5109828 }
-//                 right_shoulder
-//                 :
-//                 { y: 41, x: 19, score: 0.5459569 }
             },
             fail: (res) => {
                 console.log(res)

@@ -1,6 +1,8 @@
 {
     "usingComponents": {
-        "xx-base64": "../../components/xx_base64/xx_base64",
-        "xx-dialog": "../../components/xx_dialog/xx_dialog"
+        "ai-make": "../../components/ai_make/ai_make",
+        "ai-btn": "../../components/ai_btn/ai_btn",
+        "xx-navigte": "../../components/xx_navigte/xx_navigte",
+        "ai-painter": "../../components/ai_painter/ai_painter"
     }
 }

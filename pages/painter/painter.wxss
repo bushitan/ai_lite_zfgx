@@ -1,5 +1,64 @@
 /* pages/resualt/resualt.wxss */
 
+.color{
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffffff;
+}
+.color .node{
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1rpx #888 solid;
+}
+.color .node input{
+    background-color: #ffffff;
+    width: 60px;
+    font-size: 9pt;
+}
+
+.pick{
+
+}
+
+
+
+.control{
+    margin-top: 15px;
+    text-align: center;
+}
+.control .center{
+    display: flex;
+    justify-content: center;
+}
+
+.control image  {
+    width: 23px;
+    height: 23px;
+}
+
+.control .left{
+    /* margin-right: 26px; */
+}
+
+.control .click{
+    background-color: #eee;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .header{
     padding:  15px 15px 0;
 }
@@ -22,11 +81,11 @@ textarea{
 
 
 
-canvas{
+/* canvas{
     position: absolute;
     top:-10000px;
 
-}
+} */
 
 
 
