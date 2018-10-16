@@ -17,8 +17,15 @@ module.exports.deleteHex = deleteHex;
        <label>#</label> <input value="{{color.deleteHex(lineColor)}}" placeholder="线的颜色" bindconfirm="inputLineColor" />
     </view>
 </view> -->
-
-<ai-painter 
+<ai-show
+    bg="{{tempImage}}"
+    bodyRectangle="{{bodyRectangle}}"
+    landmark="{{landmark}}"
+    catch:touchCallback="touchCallback"
+    pointColor="{{pointColor}}"
+    lineColor="{{lineColor}}"
+></ai-show>
+<!-- <ai-painter 
     bodyRectangle="{{bodyRectangle}}"
     landmark="{{landmark}}"
     catch:currentKey="currentKey"
@@ -29,20 +36,21 @@ module.exports.deleteHex = deleteHex;
     lineColor="{{lineColor}}"
     getImage="{{getImage}}"
 >
-</ai-painter>
+</ai-painter> -->
 
+<button catchtap='moveTop'>321321</button>
 
 <!-- 位置选择 -->
 <view class="section">
   <picker bindchange="bindPickerChange" range-key="name" range="{{keyArray}}" bindchange="pickKey">
     <view class="picker">
-        <xx-navigte title="当前选择关节点：{{keyArray[keyIndex].name}}"></xx-navigte>
+        <xx-navigte title="选择微调关节点：{{keyArray[keyIndex].name}}"></xx-navigte>
     </view>
   </picker>
 </view>
 
 <view class='control'>
-    <image src='../../images/direction_top.png' catchtap='moveTop'></image>
+    <image src='../../images/direction_top.png' bindtap='moveTop' ></image>
     <view class='center'>
         <image src='../../images/direction_left.png' class='left' catchtap='moveLeft'></image>
         <label>微调</label>
@@ -51,8 +59,10 @@ module.exports.deleteHex = deleteHex;
     <image src='../../images/direction_bottom.png' catchtap='moveBottom'></image>
 </view>
 
-<ai-make></ai-make>
+<!-- <ai-make></ai-make> -->
 
+
+<canvas canvas-id="downCanvas" class="canvas" style='width:{{imageWidth}}px ;height:{{imageHeight}}px' ></canvas>
 
 <ai-btn
     catch:clickChoice="clickChoice"

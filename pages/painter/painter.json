@@ -2,6 +2,8 @@
     "usingComponents": {
         "ai-make": "../../components/ai_make/ai_make",
         "ai-btn": "../../components/ai_btn/ai_btn",
+        "ai-show": "../../components/ai_show/ai_show",
+        
         "xx-navigte": "../../components/xx_navigte/xx_navigte",
         "ai-painter": "../../components/ai_painter/ai_painter"
     }
