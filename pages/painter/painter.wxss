@@ -22,23 +22,41 @@
 }
 
 
+.control_flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .control{
+    z-index: 99999;
     margin-top: 15px;
     text-align: center;
 }
+.control navigator{
+    width: 32px;
+    height: 32px;
+}
+
 .control .center{
     display: flex;
     justify-content: center;
 }
 
 .control image  {
-    width: 23px;
-    height: 23px;
+    z-index: 99999;
+    width: 32px;
+    height: 32px;
 }
 
 .control .left{
     /* margin-right: 26px; */
+}
+
+.control label{
+    width: 36px;
+    line-height: 32px;
+    text-align: center;
 }
 
 .control .click{

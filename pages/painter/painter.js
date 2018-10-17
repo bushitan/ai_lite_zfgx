@@ -9,8 +9,7 @@ var orgLandmark = {}
 var offsetBodyRectangle = {}
 var offsetLandmark = {}
 
-var canvas
-
+var movePixle = 3 //移动像素
 
 Page({
 
@@ -26,34 +25,36 @@ Page({
 
         // AI识别结果
         // bg: "../../images/body.jpg",
-        key:"",
+        
         landmark: {},
-        touchKey:"",
-        move:{},
+        // touchKey:"",
+        // move:{},
         
         // 选择器
+        key: "head", //默认触摸点
         keyIndex:0,
         keyArray: [
-            { name: "头部", key: "head" },
-            { name: "脖子", key: "neck" },
-            { name: "左肩", key: "left_shoulder" },
-            { name: "左肘", key: "left_elbow" },
-            { name: "左手", key: "left_hand" },
-            { name: "右肩", key: "right_shoulder" },
-            { name: "右肘", key: "right_elbow" },
-            { name: "右手", key: "right_hand" },
-            { name: "左臀", key: "left_buttocks" },
-            { name: "左膝", key: "left_knee" },
-            { name: "左脚", key: "left_foot" },
-            { name: "右臀", key: "right_buttocks" },
-            { name: "右膝", key: "right_knee" },
-            { name: "右脚", key: "right_foot" },
+            { name: "1--头部", key: "head" },
+            { name: "2--脖子", key: "neck" },
+            { name: "3.1--左肩", key: "left_shoulder" },
+            { name: "3.2--左肘", key: "left_elbow" },
+            { name: "3.3--左手", key: "left_hand" },
+            { name: "4.1--右肩", key: "right_shoulder" },
+            { name: "4.2--右肘", key: "right_elbow" },
+            { name: "4.3--右手", key: "right_hand" },
+            { name: "5.1--左臀", key: "left_buttocks" },
+            { name: "5.2--左膝", key: "left_knee" },
+            { name: "5.3--左脚", key: "left_foot" },
+            { name: "6.1--右臀", key: "right_buttocks" },
+            { name: "6.2--右膝", key: "right_knee" },
+            { name: "6.3--右脚", key: "right_foot" },
         ],
 
         //颜色
         pointColor: "#6596ed",
         lineColor:"#6596ed",
         //获取图片
+        makeLandmark:{},
     },
 
 
@@ -62,15 +63,20 @@ Page({
         // GP.onInit(GP.data.tempImage)
 
 
-        var tempFile = "https://cdn.faceplusplus.com.cn/mc-official/scripts/demoScript/images/demo-pic74.jpg"
+        var tempFile =          "https://cdn.faceplusplus.com.cn/mc-official/scripts/demoScript/images/demo-pic74.jpg"
         GP.setData({
-            tempImage: tempFile
+            tempImage: tempFile,
+            makeLandmark: wx.getStorageSync("landmark"),
+            imageWidth:355,
+            imageHeight:355
         })
-        GP.onInit(tempFile)
+        // wx.setStorageSync("body_rectangle", res.data.skeletons[0].body_rectangle)
+        // wx.setStorageSync("landmark", offsetLandmark)
+        // GP.onInitBase()
     },
 
     //初始化屏幕
-    onInit(imagePath){
+    onInitBase() {
         wx.getSystemInfo({
             success: function (res) {
                 console.log(res)
@@ -80,7 +86,7 @@ Page({
 
                 })
                 wx.getImageInfo({
-                    src: imagePath, 
+                    src: GP.data.tempImage,
                     success(res) {
                         var _width = GP.data.windowWidth - 20
                         var _ratio = _width / res.width
@@ -96,6 +102,33 @@ Page({
         })
     },
 
+    //初始化屏幕
+    onInit(){
+        wx.getSystemInfo({
+            success: function (res) {
+                console.log(res)
+                GP.setData({
+                    windowWidth: res.windowWidth,
+                    windowHeight: res.windowHeight,
+
+                })
+                wx.getImageInfo({
+                    src: GP.data.tempImage, 
+                    success(res) {
+                        var _width = GP.data.windowWidth - 20
+                        var _ratio = _width / res.width
+                        GP.setData({
+                            imageWidth: _width,
+                            imageHeight: _width * res.height / res.width,
+                            ratio: _ratio,
+                        })
+                        // GP.bodyAI()
+                    }
+                })
+            }
+        })
+    },
+
     //转换点坐标
     offsetPoint(org_body_rectangle, org_landmark){
 
@@ -103,8 +136,8 @@ Page({
         var orgBodyRectangle = org_body_rectangle
         var orgLandmark = org_landmark
 
-        var offsetBodyRectangle = {}
-        var offsetLandmark = {}
+        offsetBodyRectangle = {}
+        offsetLandmark = {}
 
         // 原点宽度
         var pointWidth = 10
@@ -139,28 +172,39 @@ Page({
         var key = e.detail.key
         var landmark = e.detail.landmark
         offsetLandmark = landmark
-        GP.setData({ key: key})
+        // arr.indexOf(item)
+        var temp = ["head", "neck", "left_shoulder", "left_elbow", "left_hand", "right_shoulder", "right_elbow", "right_hand", "left_buttocks", "left_knee", "left_foot", "right_buttocks", "right_knee", "right_foot"]
+        GP.setData({
+            keyIndex: temp.indexOf(key)||0,
+            key: key,
+        })
+    },
+    pickKey(e) {
+        console.log(e.detail)
+        var index = e.detail.value
+        GP.setData({
+            keyIndex: index, //设置pick的显示值
+            key: GP.data.keyArray[index].key //设置当前要操作的key
+        })
     },
 
     //移动
     moveTop() {
-        offsetLandmark[GP.data.key].y = offsetLandmark[GP.data.key].y - 1
+        offsetLandmark[GP.data.key].y = offsetLandmark[GP.data.key].y - movePixle
         GP.setData({ landmark: offsetLandmark })
     },
     moveLeft() {
-        offsetLandmark[GP.data.key].x = offsetLandmark[GP.data.key].x - 1
+        offsetLandmark[GP.data.key].x = offsetLandmark[GP.data.key].x - movePixle
         GP.setData({ landmark: offsetLandmark })
     },
     moveRight() {
-        offsetLandmark[GP.data.key].x = offsetLandmark[GP.data.key].x + 1
+        offsetLandmark[GP.data.key].x = offsetLandmark[GP.data.key].x + movePixle
         GP.setData({ landmark: offsetLandmark })
     },
     moveBottom() {
-        offsetLandmark[GP.data.key].y = offsetLandmark[GP.data.key].y + 1
+        offsetLandmark[GP.data.key].y = offsetLandmark[GP.data.key].y + movePixle
         GP.setData({ landmark: offsetLandmark })
     },
-
-
 
 
     // 更换图片
@@ -171,98 +215,72 @@ Page({
             sourceType: ['album', 'camera'],
             success(res) {
                 // tempFilePath可以作为img标签的src属性显示图片
-                // const tempFilePaths = res.tempFilePaths
-
-                var tempFile = "https://cdn.faceplusplus.com.cn/mc-official/scripts/demoScript/images/demo-pic74.jpg"
+                const tempFilePaths = res.tempFilePaths[0]
                 GP.setData({
-                    tempImage: tempFile
+                    tempImage: tempFilePaths
                 })
-                GP.onInit(tempFile )
-            }
+                GP.onInit()
+                wx.uploadFile({
+                    url: 'https://api-cn.faceplusplus.com/humanbodypp/v1/skeleton',
+                    filePath: tempFilePaths,
+                    name: 'image_file',
+                    header: {
+                        'content-type': 'multipart/form-data'
+                    },
+                    
+                    formData: {
+                        // 'user': 'test'
+                        api_key: "y-IDakOn3S3kW0vPX2kzg8sLrZtNLyb5",
+                        api_secret: "dSNBrCEpLcEA0gemfPHetg8G26UEIBkh",
+                    },
+                    success(res) {
+                        // const data = res.data
+                        // console.log(data)
+                        var data = JSON.parse(res.data)
+                        if (data.hasOwnProperty('skeletons')) {
+                            if (data.skeletons.length == 0){
+                                wx.showModal({
+                                    title: '没有检测到姿势',
+                                    content: '上传的图片没有任何姿势',
+                                })
+                                return
+                            }
+
+                            console.log("in skeletons")
+                            GP.offsetPoint(
+                                data.skeletons[0].body_rectangle,
+                                data.skeletons[0].landmark
+                            )
+                            wx.showToast({
+                                title: '姿势检测成功',
+                            })
+                        }
+                        else {
+                            wx.showModal({
+                                title: '姿势检测失败',
+                                content: '无法检测姿势，请重新上传',
+                            })
+                        }
+                    }
+                })
+            },
+
+            fail: (res) => {
+                console.log(res)
+            },
+            complete: (res) => {
+                console.log(res)
+
+            },
         })
     },
 
     //图片导出
     clickDown() {
-
-        var _width = this.data.imageWidth
-        var _height = this.data.imageHeight
-        var downCanvasID = "downCanvas"
-        // GP.setData({ getImage: true })
-        canvas = wx.createCanvasContext(downCanvasID)
-        // 1. 绘制图片至canvas
-        canvas.drawImage(this.data.tempImage, 0, 0, _width, _height)
-        GP.updateLine()
-        canvas.draw()
-        wx.canvasToTempFilePath({
-            x: 0,
-            y: 0,
-            // width: this.data.bgWidth,
-            // height: this.data.bgHeight,
-            width: _width,
-            height: _height,
-            // destWidth: 100,
-            // destHeight: 100,
-            canvasId: downCanvasID,
-            success(res) {
-                console.log(res.tempFilePath)
-            }
+        GP.setData({
+            makeLandmark: offsetLandmark
         })
-
     },
-
-    updateLine() {
-        var key = offsetLandmark
-        // console.log(key)
-        this.drawLine(key["head"], key["neck"])
-        this.drawLine(key["neck"], key["left_shoulder"])
-        this.drawLine(key["neck"], key["right_shoulder"])
-
-        this.drawLine(key["left_shoulder"], key["left_elbow"])
-        this.drawLine(key["left_elbow"], key["left_hand"])
-
-        this.drawLine(key["right_shoulder"], key["right_elbow"])
-        this.drawLine(key["right_elbow"], key["right_hand"])
-
-        this.drawLine(key["left_shoulder"], key["half"])
-        this.drawLine(key["right_shoulder"], key["half"])
-
-
-        this.drawLine(key["left_buttocks"], key["half"])
-        this.drawLine(key["right_buttocks"], key["half"])
-
-        this.drawLine(key["left_buttocks"], key["left_knee"])
-        this.drawLine(key["left_knee"], key["left_foot"])
-
-        this.drawLine(key["right_buttocks"], key["right_knee"])
-        this.drawLine(key["right_knee"], key["right_foot"])
-
-        // context.setStrokeStyle(this.data.lineColor)
-        canvas.setLineWidth(2)
-        canvas.setStrokeStyle(this.data.lineColor)
-        canvas.stroke()
-        // canvas.draw()
-    },
-
-    drawLine(point1, point2) {
-        canvas.moveTo(
-            this.getCenterPos(point1).x,
-            this.getCenterPos(point1).y
-        )
-        canvas.lineTo(
-            this.getCenterPos(point2).x,
-            this.getCenterPos(point2).y
-        )
-    },
-
-    getCenterPos(point) {
-        var center_x = point.x + point.width / 2
-        var center_y = point.y + point.height / 2
-        return { x: center_x, y: center_y, }
-    },
-
-
-
 
 
 
@@ -310,14 +328,6 @@ Page({
         // GP.bodyAI(e.detail)
     },
 
-    pickKey(e){
-        console.log(e.detail)
-        var index = e.detail.value
-        GP.setData({
-            keyIndex: index,
-            touchKey:GP.data.keyArray[index].value,
-        })
-    },
     currentIndex(e){
         var index = e.detail
         GP.setData({
@@ -353,6 +363,8 @@ Page({
 
 
 
+
+
     bodyAI() {
         console.log("in face AI")
         wx.request({
@@ -372,15 +384,19 @@ Page({
             success: (res) => {
                 console.log(res)
 
-                GP.offsetPoint(
-                    res.data.skeletons[0].body_rectangle,
-                    res.data.skeletons[0].landmark
-                )
-              
-                // console.log(res.data.faces[0].attributes.emotion)
-                // var step = GP.sort(res.data.faces[0].attributes.emotion)
-                // GP.toEmojiResualt(step)
-
+                if (res.data.hasOwnProperty('skeletons')){
+                    console.log("in skeletons")
+                    GP.offsetPoint(
+                        res.data.skeletons[0].body_rectangle,
+                        res.data.skeletons[0].landmark
+                    )
+                }
+                else{
+                    wx.showModal({
+                        title: '姿势检测失败',
+                        content: '无法检测姿势，请重新上传',
+                    })
+                }
             },
             fail: (res) => {
                 console.log(res)
@@ -392,4 +408,5 @@ Page({
         })
     },
 
+    onShareAppMessage(){},
 })

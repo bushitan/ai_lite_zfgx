@@ -7,16 +7,10 @@
                 </view>
             </view>
 
-            <!-- <view class='center_btn' catchtap='clickCamera' onclick="javascript: window.parent.location.href='/zfgx/bless/editor/'" >
-                <view class='center_content'
-                    hover-class="click" >
-                    <image class='center_icon'  src='/images/camera_gray.png'/>
-                    <view class="center_des">拍照送祝福</view>
-                </view>
-            </view> -->
-
-
-            <view class='mode mode_bg_sub' catchtap='clickDown' >
+        </view>
+        
+        <view class='xx_btn_right'>
+            <view class='mode mode_bg_sub ' catchtap='clickDown' >
                 <view class='node' hover-class="click">
                     <image src='/images/download.png' />
                 </view>

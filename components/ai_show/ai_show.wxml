@@ -8,15 +8,15 @@
         <canvas canvas-id="lineCanvas" ></canvas>
     </view>
 
+                    <!-- bindchange="touch" -->
     <view class='movable'>
         <movable-area > 
             <block wx:for="{{landmark}}" wx:key="index">
                 <movable-view 
+                    disabled="{{true}}"
                     class='point' 
                     x="{{item.x}}" y="{{item.y}}" 
                     direction="all"
-                    bindchange="touch"
-                    bindcat
                     data-index="{{item.id}}"
                     data-key="{{item.key}}"
                     style='height: {{item.width}}px;width: {{item.height}}px;background: {{pointColor}}; '

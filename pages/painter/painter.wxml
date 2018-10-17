@@ -38,38 +38,60 @@ module.exports.deleteHex = deleteHex;
 >
 </ai-painter> -->
 
-<button catchtap='moveTop'>321321</button>
 
 <!-- 位置选择 -->
 <view class="section">
-  <picker bindchange="bindPickerChange" range-key="name" range="{{keyArray}}" bindchange="pickKey">
+  <picker 
+    bindchange="bindPickerChange" 
+    range-key="name" 
+    range="{{keyArray}}" 
+    value='keyIndex'
+    bindchange="pickKey"
+  >
     <view class="picker">
         <xx-navigte title="选择微调关节点：{{keyArray[keyIndex].name}}"></xx-navigte>
     </view>
   </picker>
 </view>
 
+
+
 <view class='control'>
-    <image src='../../images/direction_top.png' bindtap='moveTop' ></image>
-    <view class='center'>
-        <image src='../../images/direction_left.png' class='left' catchtap='moveLeft'></image>
-        <label>微调</label>
-        <image src='../../images/direction_right.png' catchtap='moveRight'></image>
+    <view class='control_flex'>
+        <navigator>
+            <image src='../../images/direction_top.png' bindtap='moveTop' ></image>
+        </navigator>
     </view>
-    <image src='../../images/direction_bottom.png' catchtap='moveBottom'></image>
+    <view class='control_flex'>
+        <navigator>
+            <image src='../../images/direction_left.png' class='left' catchtap='moveLeft'></image>
+        </navigator>
+        <label>微调</label>
+        <navigator>
+            <image src='../../images/direction_right.png' catchtap='moveRight'></image>
+        </navigator>
+    </view>
+    <view class='control_flex'>
+        <navigator>
+            <image src='../../images/direction_bottom.png' catchtap='moveBottom'></image>
+        </navigator>
+    </view>
 </view>
 
-<!-- <ai-make></ai-make> -->
+<ai-make 
+    makeLandmark="{{makeLandmark}}" 
+    bg="{{tempImage}}"
+    width="{{imageWidth}}"
+    height="{{imageHeight}}"
+    pointColor="{{pointColor}}"
+    lineColor="{{lineColor}}"
+></ai-make>
 
-
-<canvas canvas-id="downCanvas" class="canvas" style='width:{{imageWidth}}px ;height:{{imageHeight}}px' ></canvas>
 
 <ai-btn
     catch:clickChoice="clickChoice"
     catch:clickDown="clickDown"
 ></ai-btn>
-
-
 
 
 

@@ -49,7 +49,7 @@ Component({
         lineColor: {
             type: String,
             value: "#ffffff",
-            observer: '_changeColor',
+            // observer: '_changeColor',
         },
        
   },
@@ -80,7 +80,7 @@ Component({
             if (newVal) {
                 // context.setStrokeStyle(newVal)
                 this.setData({ lineColor: newVal})
-                this.updateLine()
+                // this.updateLine()
             }
         },
 
@@ -150,7 +150,7 @@ Component({
                 //     // console.log(e.currentTarget.dataset.index)
                     
                 // }
-        }   ,
+        },
 
 
         //1 head	Object	头部

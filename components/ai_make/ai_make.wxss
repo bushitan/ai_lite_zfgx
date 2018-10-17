@@ -2,6 +2,6 @@
 
 
 .canvas{
-    width: 355px;
-    height: 355px;
+    position: fixed;
+    top: -10000px;
 }

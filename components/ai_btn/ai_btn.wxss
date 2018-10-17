@@ -3,10 +3,19 @@
 .xx_btn{
     position: fixed;
     bottom: 15px;
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     justify-content: space-between;
-    z-index: 9999;
+    /* z-index: 9999; */
+}
+.xx_btn_right {
+    position: fixed;
+    bottom: 15px;
+    right: 0;
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .mode{
