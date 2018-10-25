@@ -1,4 +1,6 @@
 
+<image class='xx_bg' src='../../images/map_bg.jpg'></image>
+
 <view class='xx_box'>
 
     <!-- <navigator url='/pages/comment/comment' class='dialog' >努力识别中...</navigator> -->

@@ -1,0 +1,43 @@
+<!--pages/index/index.wxml-->
+
+
+<xx-map catchclick="clickTorch"></xx-map>
+
+
+
+<view class='ai'>
+    <!-- <view class='phone'>AI识别柳宗元雕像</view>
+    <view style='height:20px;'></view> -->
+    <view url='/pages/emoji/emoji' catchtap='toEmoji' class='btn'>
+        <view class='content'>  
+            <image  src='../../images/camera.png'></image>
+            <label>送祝福，抢福卡</label>
+        </view>
+    </view>
+    <view style='height:10px;'></view>
+    <!-- <view class='phone' catchtap='chooseImage'>从相册选择></view> -->
+</view>
+<view style='height:5px'></view>
+<task></task>
+<view style='height:5px'></view>
+<prize></prize>
+<view style='height:80px'></view>
+
+
+
+
+
+<!-- <view class='header'>
+    <navigator url='/pages/article/article'>
+        <image src='{{swiper}}' ></image>
+    </navigator>
+</view> -->
+
+<!-- <view class='wall'>
+    <view class='content'>
+        <view  class='editor' > 
+            <view class='title'>{{currentArea.name}}</view>
+        </view>
+        <xx-danmu list="{{danmuList}}" ></xx-danmu>
+    </view>
+</view> -->

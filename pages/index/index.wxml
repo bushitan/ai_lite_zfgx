@@ -1,13 +1,78 @@
 <!--pages/index/index.wxml-->
 
+<image class='xx_bg' src='../../images/map_bg.jpg'></image>
+
+<view class='deadline'>
+    <view class='content'>
+        <view>距离广西壮族自治区成立六十周年</view>
+        <view>还有<label>50</label>天</view>
+    </view>
+</view>
 
 <xx-map catchclick="clickTorch"></xx-map>
 
 
 
-<view class='ai'>
-    <!-- <view class='phone'>AI识别柳宗元雕像</view>
-    <view style='height:20px;'></view> -->
+<view class='wall'>
+    <image class="hero_he" src='../../images/hero_he.png' mode='widthFix'></image>
+    <image class="hero_she" src='../../images/hero_she.png' mode='widthFix'></image>
+    <view class='content'>
+        <view class='editor' >
+            <view class='title '>
+                <view class="wall_title">南宁</view>
+                <view class="wall_flex">
+                    <!-- <image class="wall_icon" src="/static/images/my_select.png"></image> -->
+                    <lable class="wall_zan">寻找 | 三娘湾</lable>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class='task'>
+    <view class='content'>
+        <view class='cover'>
+            <image  src='../../images/swiper.jpg' mode='widthFix'></image>
+        </view>
+        <view class='summary'>
+            <view class='des'>
+            很久以前，那个时候的三娘湾还不叫三娘湾，人烟也非常稀少。那片海域只有苏、杨、李姓三个男青年，他们共同生活一条渔船上，共用一网同住一舱，日子...
+            </view>
+            <navigator url='/pages/article/article' class='more'>详情></navigator>
+        </view>
+    </view>
+    <view class='prize'>
+        <view class='action'>
+        <label>活动方式</label>：点击下方拍照按钮，上传您与刘三姐的合照，AI会自动判定所在景点
+        </view>   
+        <view class='result'>
+            <label>奖励</label>：祝福积分、祝福卡
+        </view>             
+    </view>
+            
+</view>
+
+<view style='height:60px;'></view>
+
+
+<view class="menu">
+    <!-- <view class="node" onclick="javascript: window.parent.location.href='/zfgx/bless/editor/'">
+        <image src="../../images/menu_left.png"></image>
+    </view> -->
+    <view class="center" catchtap='toPainter' >
+        <image src="../../images/menu_zan.png"></image>
+        <label>识别祝福墙</label>
+    </view>
+    <!-- <view class="node" onclick="javascript: window.parent.location.href='https://mp.weixin.qq.com/s/uOUfIcFdisyf3lbsq9Yo-g'">
+        <image src="../../images/menu_right.png"></image>
+    </view> -->
+</view>
+
+
+
+
+
+<!-- <view class='ai'>
     <view url='/pages/emoji/emoji' catchtap='toEmoji' class='btn'>
         <view class='content'>  
             <image  src='../../images/camera.png'></image>
@@ -15,13 +80,13 @@
         </view>
     </view>
     <view style='height:10px;'></view>
-    <!-- <view class='phone' catchtap='chooseImage'>从相册选择></view> -->
+    <view class='phone' catchtap='chooseImage'>从相册选择></view>
 </view>
 <view style='height:5px'></view>
 <task></task>
 <view style='height:5px'></view>
 <prize></prize>
-<view style='height:80px'></view>
+<view style='height:80px'></view> -->
 
 
 

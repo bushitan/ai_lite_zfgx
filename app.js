@@ -77,3 +77,24 @@ App({
         ],
     }
 })
+
+
+
+// "tabBar": {
+//   "borderStyle": "white",
+//     "backgroundColor": "#ffffff",
+//       "color": "#888",
+//         "selectedColor": "#ff726a",
+//           "list": [{
+//             "pagePath": "pages/index/index",
+//             "selectedIconPath": "images/index_select.png",
+//             "iconPath": "images/index.png",
+//             "text": "祝福墙"
+//           }, {
+//             "pagePath": "pages/my/my",
+//             "selectedIconPath": "images/my_select.png",
+//             "iconPath": "images/my.png",
+//             "text": "我的祝福"
+//           }
+//           ]
+// },

@@ -1,12 +1,12 @@
 <view class='map'>
-    <image class='bg' src='../../images/map_org1.png' catchtap='clickArea' data-area_id="1"></image>
+    <image class='bg' src='../../images/map_org4.png' catchtap='clickArea' data-area_id="1"></image>
     <block wx:for="{{list}}" wx:key="index">
         <view 
             class='point' 
             style='top:{{item.top}}rpx;left:{{item.left}}rpx;'
             >
             <image  
-                src='../../images/point.png' 
+                src='../../images/my_select.png' 
                 catchtap='click' 
                 data-point_id="{{item.id}}"
                 data-index="{{index}}"
@@ -16,4 +16,6 @@
     </block>
 </view>
 
-<view></view>
+<view>
+  
+</view>

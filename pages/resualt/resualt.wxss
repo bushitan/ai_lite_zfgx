@@ -108,11 +108,11 @@ canvas{
 
 .mode_bg_sub .node{
     margin: auto;
-     line-height: 49px;
+    line-height: 48px;
     font-size: 14pt;
-     overflow:hidden;    
-     width: 49px;
-    height: 49px; 
+    overflow:hidden;    
+    width: 48px;
+    height: 48px; 
     color: #ec563e;
     background-color: #fff;
     border-radius: 50%;
