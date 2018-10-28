@@ -196,9 +196,12 @@ Page({
 
 
     back() {
-        wx.switchTab({
-            url: '/pages/index/index',
+        wx.navigateBack({
+            
         })
+        // wx.switchTab({
+        //     url: '/pages/index/index',
+        // })
     },
     toComment(){
         

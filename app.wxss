@@ -37,3 +37,19 @@ input {
     right: 0; */
     z-index: -999;
 }
+
+/* 倒计时 */
+.deadline{
+    color: #fff;
+    text-align: center;
+}
+.deadline .content{
+    padding: 12px;
+    background-color: rgba(98, 14, 14,0.6);
+}
+.deadline label{
+    color: #ffbd2e;
+    text-align: center;
+    font-size: 15pt;
+    font-weight: bolder;
+}

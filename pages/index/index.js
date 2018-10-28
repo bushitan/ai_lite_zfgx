@@ -1,4 +1,3 @@
-// pages/index/index.js
 var APP = getApp()
 var API = require('../../utils/api.js')
 var GP;
@@ -98,7 +97,11 @@ Page({
         })
     },
 
-
+    onMap(){
+        wx.previewImage({
+            urls: ["http://www.gxta.gov.cn/Content/front/images/%E5%B9%BF%E8%A5%BF%E6%97%85%E6%B8%B8%E5%AF%BC%E8%A7%88%E5%9B%BE-1.jpg"],
+        })
+    },
     /**
      * 用户点击右上角分享
      */

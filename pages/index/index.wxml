@@ -63,9 +63,9 @@
         <image src="../../images/menu_zan.png"></image>
         <label>识别祝福墙</label>
     </view>
-    <!-- <view class="node" onclick="javascript: window.parent.location.href='https://mp.weixin.qq.com/s/uOUfIcFdisyf3lbsq9Yo-g'">
+    <view class="node" catchtap='onMap'>
         <image src="../../images/menu_right.png"></image>
-    </view> -->
+    </view>
 </view>
 
 

@@ -11,8 +11,8 @@
 }
 
 view, input, text {
-  font-size: 28rpx;
-  color: #333;
+  /* font-size: 28rpx; */
+  /* color: #333; */
 }
 
 .dialog-wxapp {

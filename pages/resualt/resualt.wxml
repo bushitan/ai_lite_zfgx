@@ -1,16 +1,24 @@
 
 <image class='xx_bg' src='../../images/map_bg.jpg'></image>
 
+<view class='deadline'>
+    <view class='content'>
+        <view>距离广西壮族自治区成立六十周年</view>
+        <view>还有<label>50</label>天</view>
+    </view>
+</view>
+
+
 <view class='xx_box'>
 
     <!-- <navigator url='/pages/comment/comment' class='dialog' >努力识别中...</navigator> -->
 
     <view class='xx_card'>
-        <view class='xx_image'>
+        <!-- <view class='xx_image'> -->
             <image class='org' src='{{tempImage}}' mode='aspectFit'></image>
-        </view>
+        <!-- </view> -->
 
-        <view style='height:15px'></view>
+        <!-- <view style='height:15px'></view> -->
     </view>
     <!-- <view catchtap='back'>重新识别</view>
    -->
