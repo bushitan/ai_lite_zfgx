@@ -2,12 +2,7 @@
 
 <image class='xx_bg' src='../../images/map_bg.jpg'></image>
 
-<view class='deadline'>
-    <view class='content'>
-        <view>距离广西壮族自治区成立六十周年</view>
-        <view>还有<label>50</label>天</view>
-    </view>
-</view>
+<deadline></deadline>
 
 <xx-map catchclick="clickTorch"></xx-map>
 
@@ -29,30 +24,7 @@
     </view>
 </view>
 
-<view class='task'>
-    <view class='content'>
-        <view class='cover'>
-            <image  src='../../images/swiper.jpg' mode='widthFix'></image>
-        </view>
-        <view class='summary'>
-            <view class='des'>
-            很久以前，那个时候的三娘湾还不叫三娘湾，人烟也非常稀少。那片海域只有苏、杨、李姓三个男青年，他们共同生活一条渔船上，共用一网同住一舱，日子...
-            </view>
-            <navigator url='/pages/article/article' class='more'>详情></navigator>
-        </view>
-    </view>
-    <view class='prize'>
-        <view class='action'>
-        <label>活动方式</label>：点击下方拍照按钮，上传您与刘三姐的合照，AI会自动判定所在景点
-        </view>   
-        <view class='result'>
-            <label>奖励</label>：祝福积分、祝福卡
-        </view>             
-    </view>
-            
-</view>
-
-<view style='height:60px;'></view>
+<task></task>
 
 
 <view class="menu">
@@ -67,6 +39,7 @@
         <image src="../../images/menu_right.png"></image>
     </view>
 </view>
+<view style='height:30px;'></view>
 
 
 

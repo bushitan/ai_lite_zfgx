@@ -2,16 +2,17 @@
     <image class='bg' src='../../images/map_org4.png' catchtap='clickArea' data-area_id="1"></image>
     <block wx:for="{{list}}" wx:key="index">
         <view 
-            class='point' 
+            class='point {{select==item.PostalCode ? "select":"" }} ' 
             style='top:{{item.top}}rpx;left:{{item.left}}rpx;'
+            catchtap='click' 
+            data-postal_code="{{item.PostalCode}}"
             >
             <image  
                 src='../../images/my_select.png' 
-                catchtap='click' 
-                data-point_id="{{item.id}}"
-                data-index="{{index}}"
+                
                 ></image>
-            <view class='num'>200</view>
+            <label class='num'>{{item.Score}}</label>
+            <view>{{item.name}}</view>
         </view>
     </block>
 </view>

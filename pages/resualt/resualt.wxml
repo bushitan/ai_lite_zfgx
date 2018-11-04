@@ -1,13 +1,8 @@
 
 <image class='xx_bg' src='../../images/map_bg.jpg'></image>
 
-<view class='deadline'>
-    <view class='content'>
-        <view>距离广西壮族自治区成立六十周年</view>
-        <view>还有<label>50</label>天</view>
-    </view>
-</view>
 
+<deadline></deadline>
 
 <view class='xx_box'>
 
