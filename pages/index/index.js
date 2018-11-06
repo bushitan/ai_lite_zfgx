@@ -29,6 +29,32 @@ Page({
         GP.setData({
             danmuList: APP.globalData.danmu
         })
+
+        GP.onInit()
+    },
+
+    onInit(){
+        wx.login({
+            success: function (res) {
+                // console.log(res)
+                // return
+                wx.request({
+                    
+                    'url': "https://www.51zfgx.com/WxOpen/OnLogin?code=" + res.code,
+                    // 'url': "https://www.51zfgx.com/WxOpen/OnLogin",
+                    method:"POST",
+                    // 'data': {
+                    //     code: res.code,
+                    // },
+                    'success': function (res) {
+                        console.log(res)
+                    },
+                })
+            },
+            fail: function (res) {
+                console.log("fail", res)
+            },
+        });
     },
 
     //点击地图的蜡烛
