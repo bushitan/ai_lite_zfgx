@@ -1,6 +1,0 @@
-{
-    "usingComponents": {
-        "xx-btn": "../../components/xx_btn/xx_btn",
-        "tip": "../../components/tip/tip"
-    }
-}

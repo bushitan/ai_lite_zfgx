@@ -1,16 +1,10 @@
 {
     "pages":[
+        "pages/mascot/mascot",
+        "pages/m_result/m_result",
         "pages/index/index",
-        "pages/painter/painter",
         "pages/resualt/resualt",
-        "pages/article/article",
-        "pages/emoji/emoji",
-        "pages/comment/comment",
-        "pages/comment_self/comment_self",
-        "pages/ladder/ladder",
-        "pages/my/my"
-
-
+        "pages/article/article"
     ],
     "window": {
         "navigationStyle":"custom",

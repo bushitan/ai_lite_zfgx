@@ -1,0 +1,11 @@
+
+<image class='bg' src='../../images/stage_1.jpg'></image>
+<view class='content'>
+    <image class='top' src='../../images/stage_3.png' mode='widthFix'></image>
+    <image class='center' src='../../images/stage_2.png' mode='widthFix'></image>
+</view>
+
+
+<!-- <view style='height:270rpx;'></view>
+<view class='title'> <label> {{title}}</label></view>
+<view style='height:10px;'></view> -->

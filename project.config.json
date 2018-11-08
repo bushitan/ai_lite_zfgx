@@ -36,48 +36,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
-					"name": "my",
-					"pathName": "pages/my/my",
+					"id": 0,
+					"name": "吉祥物",
+					"pathName": "pages/mascot/mascot",
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "ladder",
-					"pathName": "pages/ladder/ladder",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "祝福墙",
-					"pathName": "pages/comment/comment",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的祝福",
-					"pathName": "pages/comment_self/comment_self",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "相机",
-					"pathName": "pages/emoji/emoji",
-					"query": ""
-				},
-				{
-					"id": -1,
+					"id": 1,
 					"name": "识别结果",
-					"pathName": "pages/resualt/resualt",
-					"query": ""
-				},
-				{
-					"id": 6,
-					"name": "painter",
-					"pathName": "pages/painter/painter",
+					"pathName": "pages/m_result/m_result",
 					"query": ""
 				}
 			]

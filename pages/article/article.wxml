@@ -1,4 +1,6 @@
 <!--pages/article/article.wxml-->
-<view class='content'>
+<!-- <view class='content'>
     <rich-text nodes="{{article}}" ></rich-text>
-</view>
+</view> -->
+
+<web-view src="https://mp.weixin.qq.com/s/JZqSx3emFCOM7SSAgTSWvg"></web-view>

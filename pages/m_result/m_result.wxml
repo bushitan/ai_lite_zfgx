@@ -1,0 +1,46 @@
+
+<background title="识别结果"></background>
+
+
+
+
+<view style='height:270rpx;'></view>
+<title content="识别中..."></title>
+<view style='height:10px;'></view>
+
+ <view class='xx_box'>
+    <view class='xx_card'>
+            <image class='org' src='{{tempImage}}' mode='aspectFit'></image>
+    </view>
+</view>
+
+<view class='menu'>
+    <menu icon="../../images/menu_laugth.png" content="成功，重新识别"></menu>
+    <menu icon="../../images/menu_sad.png" content="错误，反馈结果"></menu>
+</view>
+<!--
+<view class='loading ' wx:if="{{isLoad}}">
+    <label class='toast'>努力识别中..</label>
+</view>
+<view class='xx_btn' wx:else>
+    <view class='mode mode_bg_sub' catchtap='back'>
+        <view class='node' hover-class="click">
+            <image src='../../images/right.png'></image>
+        </view>           
+    </view>
+    <view class='center'>钦州三娘湾</view>
+    <view class='mode mode_bg_center' catchtap='clickCamera'>
+        <view class='node level_color_1'  
+            hover-class="click" >
+            <image class='image'  src='../../images/camera_gray.png'></image>
+        </view>
+    </view>
+    
+    <view class='mode mode_bg_sub' catchtap='openDialog' > 
+        <view class='node' hover-class="click">
+
+            <image src='../../images/error.png'></image>
+        </view>    
+    </view>
+</view> -->
+

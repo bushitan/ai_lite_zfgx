@@ -1,0 +1,32 @@
+
+.bg{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -999;
+}
+.content{
+    position: fixed;
+    z-index: -998;
+
+}
+.top{
+    width: 100vw;
+    height: auto;
+}
+.center{
+    /* position: fixed; */
+    width: 100vw;
+    height: auto;   
+}
+
+.title{
+    text-align: center;
+}
+.title label{
+    padding: 10px 20px;
+    font-size: 14pt;
+    font-weight: bolder;
+    color: #ffffff;
+    background-color: rgba(98, 14, 14,0.6);
+}

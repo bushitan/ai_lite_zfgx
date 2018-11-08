@@ -1,0 +1,15 @@
+
+<view class='task'>
+    <view class='content' style=" flex-direction:{{direction}}">
+        <view class='cover'>
+            <image  src='{{image}}' mode='widthFix'></image>
+        </view>
+        <view class='summary'>
+            <view class='des'>
+            {{content}}
+            很久以前，那个时候的三娘湾还不叫三娘湾，人烟也非常稀少。那片海域只有苏、杨、李姓三个男青年，他们共同生活一条渔船上，共用一网同住一舱，日子...
+            </view>
+            <!-- <navigator url='/pages/article/article' class='more'>详情></navigator> -->
+        </view>
+    </view>
+</view>

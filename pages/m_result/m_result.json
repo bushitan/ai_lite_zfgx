@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "menu": "../../components/menu/menu",
+        "title": "../../components/title/title",
+        "background": "../../components/background/background",
+        "deadline": "../../components/deadline/deadline",
+        "xx-dialog": "../../components/xx_dialog/xx_dialog"
+    }
+}

@@ -1,0 +1,33 @@
+
+/* 任务详情 */
+.task{
+    padding: 15px 15px 0;
+    font-size: 10pt;
+}
+.task .content{
+    color: #fff;
+    background-color: rgba(98, 14, 14,0.6);
+    /* height: 170px; */
+    padding: 5px ;
+    display: flex;
+    align-items: center;
+   
+    /* justify-content:space-between;  */
+}
+.task .cover{
+    /* flex-shrink: 150px; */
+    /* width: 105px; */
+}
+.task .cover image{
+    width: 96px;
+}
+.task .summary{
+    padding-left:15px; 
+}
+.task .des{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}

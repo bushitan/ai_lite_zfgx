@@ -1,0 +1,12 @@
+
+
+.title{
+    text-align: center;
+}
+.title label{
+    padding: 10px 20px;
+    font-size: 14pt;
+    font-weight: bolder;
+    color: #ffffff;
+    background-color: rgba(98, 14, 14,0.6);
+}

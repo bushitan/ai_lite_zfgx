@@ -5,18 +5,7 @@ var API = require('./utils/api.js')
 
 App({
     onLaunch: function () {
-        wx.getStorage({
-        key: 'history',
-        success: (res) => {
-            this.globalData.history = res.data
-        },
-        fail: (res) => {
-            console.log("get storage failed")
-            console.log(res)
-            this.globalData.history = []
-        }
-        })
-        
+      
 
     },
     // 权限询问

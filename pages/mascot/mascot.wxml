@@ -1,0 +1,42 @@
+<!--pages/mascot/mascot.wxml-->
+
+<background ></background>
+
+<view style='height:270rpx;'></view>
+<title content="寻找欢欢喜喜"></title>
+<view style='height:10px;'></view>
+
+<task-mascot image="../../images/zfgx_logo.png" direction="row-reverse"></task-mascot>
+<task-mascot image="../../images/zfgx_he.png"  ></task-mascot>
+<task-mascot image="../../images/zfgx_she.png" direction="row-reverse"></task-mascot>
+
+
+
+<view style='height:20px;'></view>
+
+
+<view class='menu'>
+    <menu 
+        icon="../../images/menu_laugth.png" 
+        content="拍照识别吉祥物" 
+        catch:click="toPainter">
+    </menu>
+    <menu 
+        icon="../../images/menu_right.png" 
+        content="活动"
+        catch:click="toArticle">
+    </menu>
+</view>
+<!-- <view class="menu">
+    <view class="node" onclick="javascript: window.parent.location.href='/zfgx/bless/editor/'">
+        <image src="../../images/menu_left.png"></image>
+    </view>
+    <view class="center" catchtap='toPainter' >
+        <image src="../../images/menu_zan.png"></image>
+        <label>拍照识别吉祥物</label>
+    </view>
+    <view class="node" catchtap='toArticle'>
+        <image src="../../images/menu_right.png"></image>
+    </view>
+</view>
+<view style='height:30px;'></view> -->
