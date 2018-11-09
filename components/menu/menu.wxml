@@ -1,6 +1,6 @@
 
 <label class="menu" catchtap='click' > 
-    <view class="node" catchtap='toPainter' hover-class='click' >
+    <view class="node"  hover-class='click' >
         <image src="{{icon}}" hidden=''></image>
         <view>{{content}}</view>
     </view>

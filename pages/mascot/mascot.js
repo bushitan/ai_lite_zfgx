@@ -52,7 +52,7 @@ Page({
                 const tempFilePath = res.tempFilePaths[0]
                 wx.setStorageSync(API.KEY_TEMP_IMAGE_PATH, tempFilePath)
                 wx.navigateTo({
-                    url: '/pages/resualt/resualt',
+                    url: '/pages/m_result/m_result',
                 })
                 // console.log(tempFilePaths)
             }

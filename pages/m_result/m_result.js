@@ -39,8 +39,29 @@ Page({
             title: '底部',
             value: 'bottom'
         }],
-        positionIndex: 0
+        positionIndex: 0,
+
+
+        dialog:"识别中...",
     },
+
+    success(){
+        wx.navigateBack({
+            
+        })
+    },
+    error(){
+        wx.showModal({
+            title: '反馈成功',
+            content: '我们将人工复核，感谢您的反馈，将会提高识别AI效率',
+            showCancel:false,
+            success:function(){
+                wx.navigateBack({})
+            },
+        })
+    },
+
+
 
     // 反馈错误
     openDialog(){

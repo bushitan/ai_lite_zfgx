@@ -1,5 +1,6 @@
 {
     "pages":[
+        "pages/address/address",
         "pages/mascot/mascot",
         "pages/m_result/m_result",
         "pages/index/index",
