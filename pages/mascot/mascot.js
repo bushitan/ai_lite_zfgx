@@ -26,6 +26,7 @@ Page({
                     method: "POST",
                     'success': function (res) {
                         console.log(res)
+                        wx.setStorageSync(API.KEY_UNIONID, res.data.unionId)
                     },
                 })
             },

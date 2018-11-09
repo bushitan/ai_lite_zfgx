@@ -5,4 +5,8 @@
  
  
  
- <canvas  canvas-id='scannerCanvas' style=' width: {{width}}px;height: {{height}}px;' >        </canvas>
+ <canvas 
+    class="scanner"  
+    canvas-id='scannerCanvas' 
+    style=' width: {{width}}px;height: {{height}}px;' >        
+</canvas>

@@ -10,38 +10,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        tempImage:"",
+
+        AIImage:"", //待识别图片
         //是否正在识别
         isLoad:false,
-
-        //反馈地名
-        areaList: ['南宁', "柳州", '桂林', "钦州--三婆石", "河池", '贺州', "玉林",],
-        value:"河池",
-        //弹出错误反馈框
-        dialogvisible: false,
-        options: {
-            showclose: true,
-            showfooter: true,
-            closeonclickmodal: true,
-            fullscreen: true,
-        },
-        title: '识别错误反馈',
-        opacity: '0.4',
-        width: '85',
-        position: 'center',
-        positions: [{
-            title: '居中',
-            value: 'center'
-        }, {
-            title: '顶部',
-            value: 'top'
-        }, {
-            title: '底部',
-            value: 'bottom'
-        }],
-        positionIndex: 0,
-
-
         dialog:"识别中...",
     },
 
@@ -61,34 +33,6 @@ Page({
         })
     },
 
-
-
-    // 反馈错误
-    openDialog(){
-        GP.setData({ dialogvisible:true})
-    },
-    // 选择地名
-    bindChange: function (e) {
-        const val = e.detail.value
-        console.log(val)
-        // this.setData({
-        //     year: this.data.years[val[0]],
-        //     month: this.data.months[val[1]],
-        //     day: this.data.days[val[2]]
-        // })
-    },
-    handleConfirm(){
-        wx.showModal({
-            title: '反馈成功',
-            content: '衷心感谢您能反馈信息，增加AI识别度',
-            showCancel:false,
-            success:function(){
-                GP.back()
-            },
-        })
-    },
-
-
     /**
      * 生命周期函数--监听页面加载
      */
@@ -102,132 +46,90 @@ Page({
     },
     onShow(){
         var tempImagePath = wx.getStorageSync(API.KEY_TEMP_IMAGE_PATH)
-        // console.log(tempImagePath)
-        wx.getImageInfo({
-            src: tempImagePath,
-            success(res) {
-                GP.drawTarget(tempImagePath, res.width, res.height)
-                GP.setData({
-                    tempImage: tempImagePath,
-                    width: res.width,
-                    height: res.height,
-                })
-                console.log(res.width)
-                console.log(res.height)
-            }
+        GP.setData({
+            AIImage: tempImagePath,
+        })
+        wx.showLoading({
+            title: '识别中...',
         })
     },
 
+    getBase64(e) {
+        // console.log(" in get OK")
+        console.log(e.detail)
+        console.log(e.detail.length)
+        
 
-    // 2 图片画图
-    drawTarget(tempImagePath, width, height) {
-        var canvas = wx.createCanvasContext(canvasID)
-        // 1. 绘制图片至canvas
-        canvas.drawImage(tempImagePath, 0, 0, width, height)
-        // 绘制完成后执行回调，API 1.7.0
-        canvas.draw(false, () => {
-            GP.imageToBase64()
-        })
-    },
+        // var base64 = wx.getStorageSync("base64")
 
-    // 3 开始base编码
-    imageToBase64() {
-
-        // wx.showLoading({
-        //     title: '识别中...',
-        // })
-        wx.canvasGetImageData({
-            canvasId: canvasID,
-            x: 0,
-            y: 0,
-            width: GP.data.width,
-            height: GP.data.height,
-            success(res) {
-                let platform = wx.getSystemInfoSync().platform
-                if (platform == 'ios') {
-                    // 兼容处理：ios获取的图片上下颠倒
-                    res = that.reverseImgData(res)
-                }
-                let pngData = upng.encode([res.data.buffer], GP.data.width, GP.data.height)
-                let base64 = wx.arrayBufferToBase64(pngData)
-                console.log(base64.length)
-                // GP.easyDL()  //获取百度对比结果
-                // GP.dish() //菜品识别
-                // GP.faceAI(base64)
-            },
-            fail(res) {
-                console.log(res)
-            }
-        })
-    },
-
-    // 3.1 IOS 图片倒置
-    reverseImgData(res) {
-        var w = res.width
-        var h = res.height
-        let con = 0
-        for (var i = 0; i < h / 2; i++) {
-            for (var j = 0; j < w * 4; j++) {
-                con = res.data[i * w * 4 + j]
-                res.data[i * w * 4 + j] = res.data[(h - i - 1) * w * 4 + j]
-                res.data[(h - i - 1) * w * 4 + j] = con
-            }
-        }
-        return res
+        GP.easyDL(e.detail)
+        // GP.easyDL(ttt)
+        
     },
 
 
-
-    faceAI(base64) {
-        console.log("in face AI")
+    // 百度分析
+    easyDL(base64_code) {
+        var access_token = "24.6f731c3b52bc627f677f67d4ea472e9a.2592000.1544325371.282335-11721075"
+        var base = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/classification/suofen"
         wx.request({
-            url: 'https://api-cn.faceplusplus.com/facepp/v3/detect',
+            url: base + "?access_token=" + access_token,
             method: "POST",
             header: {
-                'content-type': 'application/x-www-form-urlencoded'
+                'content-type': 'application/json'
             },
+
             data: {
-                api_key: "y-IDakOn3S3kW0vPX2kzg8sLrZtNLyb5",
-                api_secret: "dSNBrCEpLcEA0gemfPHetg8G26UEIBkh",
-                image_base64: base64,
-                return_attributes: 'emotion',
+                "image": base64_code,
+                // "top_num": 5
             },
             success: (res) => {
-                console.log(res)
-                console.log(res.data.faces[0].attributes.emotion)
-                // var step = GP.sort(res.data.faces[0].attributes.emotion)
-                wx.showModal({
-                    title: '识别成功',
-                    content: '您获得了一张卡片',
-                    success:function(){
-                        GP.toComment()
-                    },
+                console.log(res.data)
+                console.log(res.data.results)
+
+                GP.setData({
+                    dialog: GP.checkName(res.data.results[0].name)
                 })
-               
+
+                GP.addScore()
             },
             fail: (res) => {
                 console.log(res)
             },
-            complete: (res) => {
+            complete:function(){
                 wx.hideLoading()
-
+                // wx.showToast({
+                //     title: '识别成功',
+                // })
             },
         })
     },
 
+    checkName(name){
+        if (name == "[default]") return "图中没有欢欢，也没有喜喜"
+        if (name == "logo") return "这是广西60大庆的LOGO"
+        if (name == "hh") return "这是欢欢"
+        if (name == "xx") return "这是喜喜"
+        if (name == "hhxx") return "欢欢和喜喜"
+        if (name == "all") return "LOGO，欢欢，喜喜都在"
+    },
 
-    back() {
-        wx.navigateBack({
-            
+    addScore(){
+        var unionid = wx.getStorageSync(API.KEY_UNIONID)
+        wx.request({
+            'url': "https://www.51zfgx.com/Comment/Add",
+            method: "POST",
+            data:{
+                "addrID":"7715",
+                "unionid": unionid,
+                "Type":6,
+            },
+            'success': function (res) {
+                wx.showToast({
+                    title: '参与活动积分+1',
+                })
+            },
         })
-        // wx.switchTab({
-        //     url: '/pages/index/index',
-        // })
     },
-    toComment(){
-        
-        // wx.redirectTo({
-        //     url: '/pages/comment/comment',
-        // })
-    },
+
 })

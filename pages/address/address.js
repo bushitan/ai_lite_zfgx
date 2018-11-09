@@ -19,73 +19,72 @@ Page({
 
        
     },
+    updateAddress(res){
+
+        console.log(res.userName)
+        console.log(res.postalCode)
+        console.log(res.provinceName)
+        console.log(res.cityName)
+        console.log(res.countyName)
+        console.log(res.detailInfo)
+        console.log(res.nationalCode)
+        console.log(res.telNumber)
+
+        var unionid = wx.getStorageSync(API.KEY_UNIONID)
+        // wx.request({
+        //     'url': "https://www.51zfgx.com/Comment/Add",
+        //     method: "POST",
+        //     data:{
+        //         "addrID":"7715",
+        //         "unionid": unionid,
+        //         "Type":6,
+        //     },
+        //     'success': function (res) {
+        //         wx.showToast({
+        //             title: '参与活动积分+1',
+        //         })
+        //     },
+        // })
+
+    },
+    //获取地址
     address:function(){
         wx.chooseAddress({
-            success:function(res) {
-                console.log(res.userName)
-                console.log(res.postalCode)
-                console.log(res.provinceName)
-                console.log(res.cityName)
-                console.log(res.countyName)
-                console.log(res.detailInfo)
-                console.log(res.nationalCode)
-                console.log(res.telNumber)
+            success: function (res) {
+                GP.updateAddress(res)
             },
             fail:function(res){
-                var msg = res.errMsg
-                if (msg == "chooseAddress:fail cancel"){
-                    console.log(msg)
-                }
-                else {
-                    console.log(msg)
-
-                }
-                console.log(res)
-                wx.authorize({ scope: "scope.userInfo" })
-
-                // if (res.authSetting['scope.address'] == false) {
-                //     wx.showModal({
-                //         title: '未授权地址',
-                //         content: '没有地址，明信片无法送达T_T',
-                //         confirmText: "重新授权",
-                //         success: function (res) {
-                //             wx.openSetting({
-                //                 success(res) {
-                //                     console.log(res.authSetting)
-                //                     if (res.authSetting['scope.address'] == true)
-                //                         GP.getAddressAgain()
-                //                     // res.authSetting = {
-                //                     //   "scope.userInfo": true,
-                //                     //   "scope.userLocation": true
-                //                     // }
-                //                 }
-                //             })
-                //         },
-                //     })
-                // }
-                // else{
-                //     GP.getAddressAgain()
-                // }
+                GP.openSetting()
             },
         })
     },
-
-    getAddressAgain(){
+    // 获取授权
+    openSetting(){
+        wx.showModal({
+            title: '未授权地址',
+            content: '没有地址，明信片无法送达T_T',
+            confirmText: "重新授权",
+            success: function (res) {
+                if (res.confirm) {
+                    wx.openSetting({
+                        success(res) {
+                            GP.reAddress()
+                        }
+                    })
+                }               
+            },
+        })
+    },
+    //重新获取地址
+    reAddress(){
         wx.chooseAddress({
             success: function (res) {
-                console.log("again")
-
-                console.log(res.userName)
-                console.log(res.postalCode)
-                console.log(res.provinceName)
-                console.log(res.cityName)
-                console.log(res.countyName)
-                console.log(res.detailInfo)
-                console.log(res.nationalCode)
-                console.log(res.telNumber)
+                GP.updateAddress(res)
             },
         })
     },
+
+
 
     onInit() {
         wx.login({

@@ -1,31 +1,30 @@
 
-<background title="识别结果"></background>
-
-
-
+<background ></background>
 
 <view style='height:270rpx;'></view>
 <title content="{{dialog}}"></title>
 <view style='height:10px;'></view>
 
- <view class='xx_box'>
+<view class='xx_box'>
     <view class='xx_card'>
-            <image class='org' src='{{tempImage}}' mode='aspectFit'></image>
+            <image class='org' src='{{AIImage}}' mode='aspectFit'></image>
     </view>
 </view>
 
 <view class='menu'>
     <menu 
         icon="../../images/menu_laugth.png" 
-        content="成功，重新识别"
+        content="重新识别"
         catch:click="success">
     </menu>
     <menu 
         icon="../../images/menu_sad.png" 
-        content="错误，反馈结果"
+        content="反馈错误"
         catch:click="error">
     </menu>
 </view>
+
+<xx-base64 url="{{AIImage}}" catch:getBase64="getBase64"></xx-base64>
 <!--
 <view class='loading ' wx:if="{{isLoad}}">
     <label class='toast'>努力识别中..</label>

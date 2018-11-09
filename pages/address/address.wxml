@@ -1,4 +1,27 @@
 <!--pages/address/address.wxml-->
-<text>pages/address/address.wxml</text>
 
-<button catchtap='address'>获取地址</button>
+<background title="识别结果"></background>
+
+
+
+
+<view style='height:270rpx;'></view>
+<title content="限量版明信片"></title>
+<view style='height:10px;'></view>
+
+ <view class='xx_box'>
+    <view class='xx_card'>
+        <image class='org' src='../../images/postcard_165.jpg' mode='aspectFit'></image>
+        <view>庆祝广西60大庆，祝福广西限量款明信片，总共印制666张，免费领，先到先得！</view>
+    </view>
+</view>
+
+
+<view class='menu'>
+    <menu 
+        icon="../../images/menu_right.png" 
+        content="添加地址"
+        catch:click="address">
+    </menu>
+</view>
+<!-- <button catchtap='address'>获取地址</button> -->

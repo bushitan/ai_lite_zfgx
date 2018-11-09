@@ -22,13 +22,6 @@ textarea{
 
 
 
-canvas{
-    position: absolute;
-    top:-10000px;
-
-}
-
-
 
 .loading{
     font-size: 11pt;

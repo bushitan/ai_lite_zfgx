@@ -33,6 +33,9 @@ module.exports = {
     BONUS_SHARE: XCX_308_URL + 'speak/bonus/share/',
 
 
+    KEY_UNIONID:"unionid",
+
+
     KEY_SESSION: KEY_SESSION,
     KEY_USER_INFO: "user_info",
     KEY_SELF_CARD: "self_card",
