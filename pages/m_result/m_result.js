@@ -175,9 +175,9 @@ Page({
                 },
                 success(res) {
                     console.log(res.data)
-                    wx.showToast({
-                        title: '上传图片成功',
-                    })
+                    // wx.showToast({
+                    //     title: '上传图片成功',
+                    // })
                 },
             })
 
