@@ -1,5 +1,7 @@
 {
     "pages":[
+        
+        "pages/more/more",
         "pages/mascot/mascot",
         "pages/address/address",
         "pages/m_result/m_result",

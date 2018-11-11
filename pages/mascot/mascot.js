@@ -1,5 +1,6 @@
 var APP = getApp()
 var API = require('../../utils/api.js')
+var MENU = require('../../utils/menu.js')
 var GP;
 Page({
 
@@ -7,7 +8,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        logoContent: '我叫"锦绣辉煌，扬帆起航"，是60周年庆祝活动的徽标；您在路边看到我，请给我个大特写',
+        hhContent: '我叫"欢欢"，壮文叫daegmbauq（发音：达姆巴），我会唱山歌、会打铜鼓，我抓的鱼可大了！您在路边看到我，请拍照给我点个赞',
+        xxContent: '我叫"喜喜"，壮文叫dahniq（发音：达妮），我也会唱山歌、会跳舞，我酿的酒还可好喝咧！您在路边看到我，请跟我合个影^_^',
     },
 
     /**
@@ -35,10 +38,11 @@ Page({
             },
         });
     },
+    toMore() {
+        MENU.toMore()        
+    },
     toArticle() {
-        wx.navigateTo({
-            url: '/pages/article/article',
-        })
+        MENU.toMascotArticle()
     },
 
 

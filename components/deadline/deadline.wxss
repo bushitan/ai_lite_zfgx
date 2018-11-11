@@ -1,6 +1,10 @@
 
 /* 倒计时 */
 .deadline{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     color: #fff;
     text-align: center;
 }

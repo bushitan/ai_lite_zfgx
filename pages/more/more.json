@@ -1,0 +1,13 @@
+{
+    "usingComponents": {
+        "menu": "../../components/menu/menu",
+        "title": "../../components/title/title",
+        
+        "task-mascot": "../../components/task_mascot/task_mascot",
+        "background": "../../components/background/background",
+        "xx-map": "../../components/xx_map/xx_map",
+        "task": "../../components/task/task",
+        "deadline": "../../components/deadline/deadline",
+        "prize": "../../components/prize/prize"
+    }
+}

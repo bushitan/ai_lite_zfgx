@@ -28,3 +28,13 @@
 .menu menu{
     margin:0 7.5px; 
 }
+
+.title{
+    text-align: center;
+}
+.title label{
+    padding: 10px 20px;
+    font-size: 9pt;
+    color: #ffffff;
+    background-color: rgba(98, 14, 14,0.6);
+}

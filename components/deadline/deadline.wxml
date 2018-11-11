@@ -2,6 +2,6 @@
 <view class='deadline'>
     <view class='content'>
         <view>距离广西壮族自治区成立六十周年</view>
-        <view>还有<label>50</label>天</view>
+        <view>还有<label>{{day}}</label>天</view>
     </view>
 </view>

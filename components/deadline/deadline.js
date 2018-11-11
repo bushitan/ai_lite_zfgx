@@ -15,28 +15,9 @@ Component({
             value: [],
             observer: '_changeList',
         },
-        initindex: {
+        day: {
             type: String,
-            value: 0,
-            observer: '_changeIndex',
-        },
-        // 改变颜色
-        colorselect: {
-            type: String,
-            value: "#187bbf",
-        },
-        colorunselect: {
-            type: String,
-            value: "#000",
-        },
-        // 改变字体大小
-        sizeselect: {
-            type: String,
-            value: "11pt",
-        },
-        sizeunselect: {
-            type: String,
-            value: "11pt",
+            value: "",
         },
   },
 

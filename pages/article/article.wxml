@@ -3,4 +3,4 @@
     <rich-text nodes="{{article}}" ></rich-text>
 </view> -->
 
-<web-view src="https://mp.weixin.qq.com/s/JZqSx3emFCOM7SSAgTSWvg"></web-view>
+<web-view src="{{src}}"></web-view>

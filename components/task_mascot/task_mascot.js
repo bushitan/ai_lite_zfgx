@@ -48,10 +48,7 @@ Component({
      * return: 点击列表的index
      */
     click(e) {
-        this.setData({
-            initindex: e.currentTarget.dataset.index
-        })
-        this.triggerEvent('click', e.currentTarget.dataset.index);
+        this.triggerEvent('click');
     },
   }
 })
