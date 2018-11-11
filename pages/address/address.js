@@ -1,5 +1,6 @@
 var APP = getApp()
 var API = require('../../utils/api.js')
+var MENU = require('../../utils/menu.js')
 var GP;
 Page({
 
@@ -7,7 +8,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        addressContent:"",
+        addressNone: "添加收件地址",
+        addressSuccess: "已添加（点击更新）",
     },
 
     /**
@@ -19,32 +22,74 @@ Page({
 
        
     },
-    updateAddress(res){
 
-        console.log(res.userName)
-        console.log(res.postalCode)
-        console.log(res.provinceName)
-        console.log(res.cityName)
-        console.log(res.countyName)
-        console.log(res.detailInfo)
-        console.log(res.nationalCode)
-        console.log(res.telNumber)
+    onInit() {
+        var unionid = wx.getStorageSync(API.KEY_UNIONID)
+        wx.request({
+            'url': "https://www.51zfgx.com/Address/List",
+            method: "POST",
+            data: {
+                "unionID": unionid,
+                // "unionID": "32131",
+            },
+            'success': function (res) {
+                console.log(res.data)
+                if (res.data.result.length > 0)
+                    GP.setData({
+                        addressContent: res.data.result[0],
+                    })
+            },
+        })
+    },
+
+    toMore() {
+        MENU.toMore()
+    },
+    toArticle() {
+        MENU.toPostcardArticle()
+    },
+
+    updateAddress(res){
+        var _address = {
+            "userName": res.userName,
+            "postalCode": res.postalCode,
+            "provinceName": res.provinceName,
+            "cityName": res.cityName,
+            "countyName": res.countyName,
+            "detailInfo": res.detailInfo,
+            "nationalCode": res.nationalCode,
+            "telNumber": res.telNumber,
+        }
+
 
         var unionid = wx.getStorageSync(API.KEY_UNIONID)
-        // wx.request({
-        //     'url': "https://www.51zfgx.com/Comment/Add",
-        //     method: "POST",
-        //     data:{
-        //         "addrID":"7715",
-        //         "unionid": unionid,
-        //         "Type":6,
-        //     },
-        //     'success': function (res) {
-        //         wx.showToast({
-        //             title: '参与活动积分+1',
-        //         })
-        //     },
-        // })
+        wx.request({
+            'url': "https://www.51zfgx.com/Address/Add",
+            method: "POST",
+            data: {
+                "unionID": unionid,
+                "userName": res.userName,
+                "postalCode": res.postalCode,
+                "provinceName": res.provinceName,
+                "cityName": res.cityName,
+                "countyName": res.countyName,
+                "detailInfo": res.detailInfo,
+                "nationalCode": res.nationalCode,
+                "telNumber": res.telNumber,
+            },
+            'success': function (res) {
+                console.log(res)
+
+                wx.showModal({
+                    title: '添加地址成功',
+                    content:"正在排队派发精美明信片",
+                    showCancel:"false",
+                })
+                GP.setData({
+                    addressContent: _address,
+                })                
+            },
+        })
 
     },
     //获取地址
@@ -61,15 +106,22 @@ Page({
     // 获取授权
     openSetting(){
         wx.showModal({
-            title: '未授权地址',
+            title: '未授权添加地址',
             content: '没有地址，明信片无法送达T_T',
-            confirmText: "重新授权",
+            confirmText: "重新添加",
             success: function (res) {
                 if (res.confirm) {
                     wx.openSetting({
                         success(res) {
                             GP.reAddress()
-                        }
+                        },
+                        fail: function (res) {
+                            wx.showModal({
+                                title: '授权失败',
+                                content: '您未授权，没有地址，明信片无法送达T_T',
+                                confirmText: "重新授权",
+                            })
+                        },
                     })
                 }               
             },
@@ -85,28 +137,6 @@ Page({
     },
 
 
-
-    onInit() {
-        wx.login({
-            success: function (res) {
-                wx.request({
-                    'url': "https://www.51zfgx.com/WxOpen/OnLogin?code=" + res.code,
-                    method: "POST",
-                    'success': function (res) {
-                        console.log(res)
-                    },
-                })
-            },
-            fail: function (res) {
-                console.log("fail", res)
-            },
-        });
-    },
-    toArticle() {
-        wx.navigateTo({
-            url: '/pages/article/article',
-        })
-    },
 
 
     //选择照片
