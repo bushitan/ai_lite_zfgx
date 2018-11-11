@@ -52,6 +52,7 @@ Page({
         wx.showLoading({
             title: '识别中...',
         })
+        
     },
 
     getBase64(e) {
@@ -60,11 +61,28 @@ Page({
         console.log(e.detail.length)
         
 
-        // var base64 = wx.getStorageSync("base64")
-
-        GP.easyDL(e.detail)
-        // GP.easyDL(ttt)
+        GP.random()
+        GP.upImage(e.detail)
+        // GP.easyDL(e.detail)
         
+    },
+
+//     if(name == "logo") return "这是广西60大庆的LOGO"
+// if (name == "hh") return "这是欢欢"
+// if (name == "xx") return "这是喜喜"
+// if (name == "hhxx") return "欢欢和喜喜"
+// if (name == "all") return "LOGO，欢欢，喜喜都在"
+    random(){
+        var r = parseInt(Math.random() * 100)
+        var name = "[default]"
+        if (r > 40 && r <= 50) name = "hh"
+        if (r > 50 && r <= 60) name = "xx"
+        if (r > 60 && r <= 95) name = "hhxx"
+        if (r > 95) name = "all"
+        GP.setData({
+            dialog: GP.checkName(name)
+        })
+        GP.addScore()
     },
 
 
@@ -132,4 +150,43 @@ Page({
         })
     },
 
+
+    upImage(base64){
+    //上传图片
+        wx.request({
+            "url": "https://www.12xiong.top/emoji/lite/upload/get/token/",
+            "data": { "session":"M8QUbywzuhMYUc4JpF/shw=="},
+            "success": function (res) {
+                var data = res.data
+                console.log(data)
+                console.log(data.key)
+                UpBase64(data.key, data.token, base64)
+            },
+        })
+
+        function UpBase64(key, token, base64) {
+            wx.request({
+                url: 'https://upload.qiniup.com/putb64/-1/key/' + key,
+                method: "POST",
+                data: base64,
+                header: {
+                    'Content-Type': 'application/octet-stream',
+                    "Authorization": "UpToken " + token
+                },
+                success(res) {
+                    console.log(res.data)
+                    wx.showToast({
+                        title: '上传图片成功',
+                    })
+                },
+            })
+
+
+        }
+    }, 
+
+
+
+
+    
 })

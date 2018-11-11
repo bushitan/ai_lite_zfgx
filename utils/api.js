@@ -33,6 +33,8 @@ module.exports = {
     BONUS_SHARE: XCX_308_URL + 'speak/bonus/share/',
 
 
+    // 上传七牛的API
+    // UPLOAD_GET_TOKEN: host_url + 'https://www.12xiong.top/emoji/lite/upload/get/token/',
     KEY_UNIONID:"unionid",
 
 
