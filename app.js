@@ -69,6 +69,7 @@ App({
 
 
 
+// "pages/index/index",
 // "tabBar": {
 //   "borderStyle": "white",
 //     "backgroundColor": "#ffffff",

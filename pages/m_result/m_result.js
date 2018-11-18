@@ -38,11 +38,6 @@ Page({
      */
     onLoad: function (options) {
         GP = this
-
-        //TODO 
-        // 1 识别建筑
-        // 2 增加积分
-        // 3 获取纪念卡
     },
     onShow(){
         var tempImagePath = wx.getStorageSync(API.KEY_TEMP_IMAGE_PATH)
@@ -61,9 +56,9 @@ Page({
         console.log(e.detail.length)
         
 
-        GP.random()
-        GP.upImage(e.detail)
-        // GP.easyDL(e.detail)
+        // GP.random()
+        GP.easyDL(e.detail) //调用easydl判断结果
+        GP.upImage(e.detail) //保存图片
         
     },
 
@@ -88,8 +83,8 @@ Page({
 
     // 百度分析
     easyDL(base64_code) {
-        var access_token = "24.6f731c3b52bc627f677f67d4ea472e9a.2592000.1544325371.282335-11721075"
-        var base = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/classification/suofen"
+        var access_token = "24.87f34717fcdc31408d771c1856453b78.2592000.1545012061.282335-11721075"
+        var base = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/classification/51zfgx"
         wx.request({
             url: base + "?access_token=" + access_token,
             method: "POST",
@@ -123,13 +118,17 @@ Page({
         })
     },
 
+    //检测名字
     checkName(name){
-        if (name == "[default]") return "图中没有欢欢，也没有喜喜"
         if (name == "logo") return "这是广西60大庆的LOGO"
         if (name == "hh") return "这是欢欢"
         if (name == "xx") return "这是喜喜"
-        if (name == "hhxx") return "欢欢和喜喜"
+        if (name == "hhxx") return "这是欢欢和喜喜"
         if (name == "all") return "LOGO，欢欢，喜喜都在"
+        if (name == "hhxx_yby") return "在户外玩耍的欢欢喜喜"
+
+        return "图中没有欢欢，也没有喜喜"
+        
     },
 
     addScore(){
