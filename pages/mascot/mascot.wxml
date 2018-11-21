@@ -16,11 +16,11 @@
 
 
 <view class='menu'>
-    <menu 
+    <!-- <menu 
         icon="../../images/menu_right.png" 
         content="更多" 
         catch:click="toMore">
-    </menu>
+    </menu> -->
     <menu 
         icon="../../images/menu_camera.png" 
         content="拍照识别吉祥物" 

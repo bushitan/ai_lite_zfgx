@@ -1,39 +1,39 @@
 // components/xx_cover_news/xx_cover_news.js
 
 
-var downCanvasID = "downCanvas"
+var canvasID = "downCanvas"
 var canvas
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        makeLandmark: {
-            type: Object,
+        url: {
+            type: String,
             value: {},
             observer: '_makeLandmark',
         },
-        bg: {
+        title: {
             type: String,
-            value: 0,
+            value: "",
         },
-        width: {
-            type: Number,
-            value: 0,
-        },
-        height: {
-            type: Number,
-            value: 0,
-        },
-        pointColor: {
-            type: String,
-            value: "#ffffff",
-        },
-        lineColor: {
-            type: String,
-            value: "#ffffff",
-            // observer: '_changeColor',
-        },
+        // width: {
+        //     type: Number,
+        //     value: 0,
+        // },
+        // height: {
+        //     type: Number,
+        //     value: 0,
+        // },
+        // pointColor: {
+        //     type: String,
+        //     value: "#ffffff",
+        // },
+        // lineColor: {
+        //     type: String,
+        //     value: "#ffffff",
+        //     // observer: '_changeColor',
+        // },
 
     },
 
@@ -43,98 +43,85 @@ Component({
     data: {
         borderSize:20,
         logoHeight:90,
+        screenWidth:750,
+        screenHeight:1000,
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
-        _makeLandmark(newVal, oldVal) {
+        _makeLandmark(tempImagePath, oldVal) {
 
-            console.log(newVal)
-            if (newVal.hasOwnProperty("head")) {
-                var _width = this.data.width
-                var _height = this.data.height
-                var downCanvasID = "downCanvas"
-                // GP.setData({ getImage: true })
-                canvas = wx.createCanvasContext(downCanvasID,this)
-                // 1. 绘制图片至canvas
-                canvas.setFillStyle('white')
-                canvas.fillRect(0, 0, _width + this.data.borderSize, _height + this.data.logoHeight)
-                canvas.drawImage(
-                    this.data.bg, 
-                    this.data.borderSize / 2, //画图要预留边框空白
-                    this.data.borderSize/2,  //画图要预留边框空白
-                    _width, //图片实际宽度
-                    _height //图片实际高度
-                )
-                this.updateLine()
-                canvas.draw(false, () => {
-                    wx.canvasToTempFilePath({
-                        x: 0,
-                        y: 0,
-                        // width: this.data.bgWidth,
-                        // height: this.data.bgHeight,
-                        width: _width + + this.data.borderSize,
-                        height: _height + this.data.logoHeight,
-                        // destWidth: 100,
-                        // destHeight: 100,
-                        canvasId: downCanvasID,
-                        success(res) {
-                            console.log(res.tempFilePath)
-                            wx.previewImage({
-                                urls: [res.tempFilePath],
-                            })
+            console.log(tempImagePath)
+            var that = this
+            if (tempImagePath != "") {
+
+                wx.getImageInfo({
+                    src: tempImagePath,
+                    success(res) {
+                        var width = res.width
+                        var height = res.height
+                        var max = 530
+                        if (width >= height) {
+                            width = max
+                            height = parseInt(max * res.height / res.width)
                         }
-                    },this)
+                        else {
+                            height = max
+                            width = parseInt(max * res.width / res.height)
+
+                        }
+                        that.setData({
+                            width: width,
+                            height: height,
+                        })
+                        canvas = wx.createCanvasContext(canvasID, that)
+                      
+                        that.drawLogo()
+                        canvas.drawImage(tempImagePath, 110 + (max - width)/2, 180, width, height)
+                        canvas.draw(false, () => {
+                            that.imageToBase64()
+                        }, this)
+                    }
                 })
-               
             }
         },
 
-        updateLine() {
-            var key = this.data.makeLandmark
-            // console.log(key)
-            this.drawLine(key["head"], key["neck"])
-            this.drawLine(key["neck"], key["left_shoulder"])
-            this.drawLine(key["neck"], key["right_shoulder"])
+        drawLogo() {
 
-            this.drawLine(key["left_shoulder"], key["left_elbow"])
-            this.drawLine(key["left_elbow"], key["left_hand"])
-
-            this.drawLine(key["right_shoulder"], key["right_elbow"])
-            this.drawLine(key["right_elbow"], key["right_hand"])
-
-            this.drawLine(key["left_shoulder"], key["half"])
-            this.drawLine(key["right_shoulder"], key["half"])
-
-
-            this.drawLine(key["left_buttocks"], key["half"])
-            this.drawLine(key["right_buttocks"], key["half"])
-
-            this.drawLine(key["left_buttocks"], key["left_knee"])
-            this.drawLine(key["left_knee"], key["left_foot"])
-
-            this.drawLine(key["right_buttocks"], key["right_knee"])
-            this.drawLine(key["right_knee"], key["right_foot"])
-            this.drawPoint(key)
-            this.drawLogo()
+            canvas.drawImage("../../images/share_bg.jpg", 0, 0,
+                this.data.screenWidth,
+            this.data.screenHeight)
+            canvas.setFillStyle("#ffffff")
+            canvas.setFontSize(40)
+            canvas.fillText(this.data.title, 110, 120)
+            canvas.fill()
         },
 
-        drawLogo(){
-
-            var _width = this.data.width
-            var _height = this.data.height
-            var _border = this.data.borderSize
-
-            canvas.setFillStyle("#000000")
-            canvas.setFontSize(11)
-            // canvas.fillText('2018.10.17', (_width + _border) / 2 - 30, _height + 30)
-            // canvas.drawImage('../../images/qr.jpg', (_width + _border) - 70, _height + 40, 60, 60)
-            canvas.fillText('2018.10.17:18:09  |  非正常姿势研究中心', 10, _height + 30)
-            canvas.drawImage('../../images/qr.jpg', (_width + _border) - 70, _height +20, 60, 60)
-            // ctx.fillText('MINA', 100, 100)
+        imageToBase64() {
+            var that = this
+            wx.canvasToTempFilePath({
+                canvasId: canvasID,
+                fileType: "jpg",
+                x: 0,
+                y: 0,
+                width: this.data.screenWidth,
+                height: this.data.screenHeight,
+                success(res) {
+                    // 临时文件
+                    var tempFilePath = res.tempFilePath
+                    wx.previewImage({
+                        urls: [tempFilePath],
+                    })
+                    that.triggerEvent('complete');
+                },
+                fail(res) {
+                    console.log(res)
+                }
+            }, that)
         },
+
 
         drawPoint(key){
             canvas.setFillStyle(this.data.pointColor)

@@ -4,4 +4,4 @@
     <!-- <canvas canvas-id="downCanvas" class="canvas" ></canvas> -->
 
     
-<canvas canvas-id="downCanvas" class="canvas" style='width:{{width + borderSize}}px ;height:{{height+logoHeight}}px' ></canvas>
+<canvas canvas-id="downCanvas" class="canvas" style='width:{{screenWidth}}px ;height:{{screenHeight}}px' ></canvas>

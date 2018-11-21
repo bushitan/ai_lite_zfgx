@@ -67,6 +67,9 @@ Component({
         var that = this
         console.log("tempImagePath:", tempImagePath)
         if (tempImagePath != "") {
+            wx.showLoading({
+                title: '识别中...',
+            })
             wx.getImageInfo({
                 src: tempImagePath,
                 success(res) {

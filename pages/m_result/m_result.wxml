@@ -9,7 +9,7 @@
     <view class='xx_card'>
             <image class='org' src='{{AIImage}}' mode='aspectFit'></image>
     </view>
-</view>
+</view> 
 
 <view class='menu'>
     <menu 
@@ -18,13 +18,28 @@
         catch:click="success">
     </menu>
     <menu 
+        icon="../../images/menu_comment.png" 
+        content="分享赢周边"
+        catch:click="share">
+    </menu>
+    <menu 
         icon="../../images/menu_sad.png" 
         content="反馈错误"
         catch:click="error">
     </menu>
 </view>
+<view style='height:40px;'></view>
 
+<ai-make
+    url="{{shareImage}}"
+    catch:complete="shareComplete"
+    title="{{dialog}}"
+> 
+</ai-make>
 <xx-base64 url="{{AIImage}}" catch:getBase64="getBase64"></xx-base64>
+
+
+
 <!--
 <view class='loading ' wx:if="{{isLoad}}">
     <label class='toast'>努力识别中..</label>

@@ -1,5 +1,6 @@
 {
     "usingComponents": {
+        "ai-make": "../../components/ai_make/ai_make",
         "xx-base64": "../../components/xx_base64/xx_base64",
         "menu": "../../components/menu/menu",
         "title": "../../components/title/title",

@@ -15,6 +15,19 @@ Page({
         //是否正在识别
         isLoad:false,
         dialog:"识别中...",
+        shareImage:"",
+    },
+
+    //分享按钮
+    share() {
+        GP.setData({
+            shareImage: wx.getStorageSync(API.KEY_TEMP_IMAGE_PATH)
+        })
+    },
+    shareComplete() {
+        GP.setData({
+            shareImage: ""
+        })
     },
 
     success(){
@@ -44,9 +57,7 @@ Page({
         GP.setData({
             AIImage: tempImagePath,
         })
-        wx.showLoading({
-            title: '识别中...',
-        })
+        
         
     },
 
@@ -120,6 +131,7 @@ Page({
 
     //检测名字
     checkName(name){
+        var str = ""
         if (name == "logo") return "这是广西60大庆的LOGO"
         if (name == "hh") return "这是欢欢"
         if (name == "xx") return "这是喜喜"
@@ -128,6 +140,7 @@ Page({
         if (name == "hhxx_yby") return "在户外玩耍的欢欢喜喜"
 
         return "图中没有欢欢，也没有喜喜"
+
         
     },
 
