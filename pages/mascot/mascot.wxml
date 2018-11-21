@@ -1,6 +1,7 @@
 <!--pages/mascot/mascot.wxml-->
 
 <background ></background>
+<deadline day="{{day}}"></deadline>
 
 <view style='height:270rpx;'></view>
 <title content="寻找欢欢喜喜"></title>

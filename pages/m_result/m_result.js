@@ -16,6 +16,7 @@ Page({
         isLoad:false,
         dialog:"识别中...",
         shareImage:"",
+        isShare:false
     },
 
     //分享按钮
@@ -23,11 +24,37 @@ Page({
         GP.setData({
             shareImage: wx.getStorageSync(API.KEY_TEMP_IMAGE_PATH)
         })
+
+
     },
     shareComplete() {
+        if (GP.data.isShare == false){
+            var unionid = wx.getStorageSync(API.KEY_UNIONID)
+            wx.request({
+                'url': "https://www.51zfgx.com/Comment/Add",
+                method: "POST",
+                data: {
+                    "addrID": "7715",
+                    "unionid": unionid,
+                    "Type": 6,
+                },
+                'success': function (res) {
+                    wx.showModal({
+                        title: '分享成功，积分+1',
+                        content: '积分礼品即将开放，详情关注公众号"祝福广西"',
+                    })
+                },
+            })
+
+        }
+
+
         GP.setData({
-            shareImage: ""
+            shareImage: "",
+            isShare:true,
         })
+
+      
     },
 
     success(){
@@ -138,6 +165,10 @@ Page({
         if (name == "hhxx") return "这是欢欢和喜喜"
         if (name == "all") return "LOGO，欢欢，喜喜都在"
         if (name == "hhxx_yby") return "在户外玩耍的欢欢喜喜"
+        if (name == "hx_cover_red") return "欢欢喜喜在坐地铁"
+        if (name == "hx_cover_blue") return "欢欢喜喜在坐地铁"
+        if (name == "hx_road") return "欢欢喜喜在户外的墙上"
+
 
         return "图中没有欢欢，也没有喜喜"
 
@@ -155,8 +186,10 @@ Page({
                 "Type":6,
             },
             'success': function (res) {
-                wx.showToast({
-                    title: '参与活动积分+1',
+
+                wx.showModal({
+                    title: '识别成功，积分+1',
+                    content: '积分礼品即将开放，详情请关注公众号"祝福广西"',
                 })
             },
         })

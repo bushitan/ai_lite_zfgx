@@ -94,7 +94,8 @@ Component({
                 this.data.screenWidth,
             this.data.screenHeight)
             canvas.setFillStyle("#ffffff")
-            canvas.setFontSize(40)
+            // canvas.setFontSize(40)
+            canvas.font = 'normal bold 40px sans-serif';
             canvas.fillText(this.data.title, 110, 120)
             canvas.fill()
         },

@@ -1,6 +1,7 @@
 var APP = getApp()
 var API = require('../../utils/api.js')
 var MENU = require('../../utils/menu.js')
+var UTIL = require('../../utils/util.js')
 var GP;
 Page({
 
@@ -19,6 +20,9 @@ Page({
     onLoad: function (options) {
         GP = this
         GP.onInit()
+        GP.setData({
+            day: UTIL.getDealing()
+        })
     },
 
     onInit() {
